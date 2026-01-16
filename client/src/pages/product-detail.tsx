@@ -1,11 +1,12 @@
+import { useState } from "react";
 import { useRoute, Link } from "wouter";
 import { useProducts, ProductStatus } from "@/context/ProductContext";
 import { Navbar } from "@/components/home/Navbar";
 import { Footer } from "@/components/home/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Check } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowLeft, Check, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const statusConfig: Record<ProductStatus, { label: string; className: string }> = {
   available: { label: "Disponible", className: "bg-green-100 text-green-800" },
@@ -16,6 +17,7 @@ const statusConfig: Record<ProductStatus, { label: string; className: string }> 
 export default function ProductDetailPage() {
   const [match, params] = useRoute("/savons/:id");
   const { products } = useProducts();
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   
   const product = products.find(p => p.id === Number(params?.id));
 
@@ -29,6 +31,14 @@ export default function ProductDetailPage() {
       </div>
     );
   }
+
+  const handleNextImage = () => {
+    setSelectedImageIndex((prev) => (prev + 1) % product.gallery.length);
+  };
+
+  const handlePrevImage = () => {
+    setSelectedImageIndex((prev) => (prev - 1 + product.gallery.length) % product.gallery.length);
+  };
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
@@ -44,19 +54,63 @@ export default function ProductDetailPage() {
           </Link>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
-            {/* Image Section */}
-            <motion.div 
-              className="relative aspect-[4/5] bg-muted rounded-2xl overflow-hidden shadow-sm"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <img 
-                src={product.image} 
-                alt={product.name}
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
+            {/* Gallery Section */}
+            <div className="space-y-4">
+              <motion.div 
+                className="relative aspect-[4/5] bg-muted rounded-2xl overflow-hidden shadow-sm group"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <AnimatePresence mode="wait">
+                  <motion.img 
+                    key={product.gallery[selectedImageIndex]}
+                    src={product.gallery[selectedImageIndex]} 
+                    alt={product.name}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-full h-full object-cover"
+                  />
+                </AnimatePresence>
+
+                {/* Gallery Navigation Arrows (if more than 1 image) */}
+                {product.gallery.length > 1 && (
+                  <>
+                    <button 
+                      onClick={(e) => { e.preventDefault(); handlePrevImage(); }}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <button 
+                      onClick={(e) => { e.preventDefault(); handleNextImage(); }}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    >
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </>
+                )}
+              </motion.div>
+
+              {/* Thumbnails */}
+              {product.gallery.length > 1 && (
+                <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+                  {product.gallery.map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedImageIndex(idx)}
+                      className={`relative flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                        selectedImageIndex === idx ? "border-primary shadow-md scale-105" : "border-transparent opacity-70 hover:opacity-100"
+                      }`}
+                    >
+                      <img src={img} alt={`Thumbnail ${idx}`} className="w-full h-full object-cover" />
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* Content Section */}
             <motion.div 

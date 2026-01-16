@@ -1,21 +1,14 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-// Import assets
-import soapLavender from "@assets/a83f4a1e-80f4-4000-89a4-81ff5dde47b7_1768587366893.jfif";
-import soapHoney from "@assets/e5ee00a4-dd3d-4cfb-ab07-19c533cbdd6b_1768587366893.jfif";
-import soapRose from "@assets/faa14cf3-baec-4057-95e2-14ae745a13a9_1768587366893.jfif";
-import soapHands from "@assets/2511d2e5-f227-44f9-97da-80ec1b0a852c_1768587366893.jfif";
-import soapAlgue from "@assets/generated_images/soap_algue_aloe_vera.png";
-import soapMango from "@assets/generated_images/soap_mango_biscuit.png";
-import soapBrandy from "@assets/generated_images/soap_vanilla_brandy.png";
-import soapCherry from "@assets/generated_images/soap_cherry_scent.png";
-import soapStrawberry from "@assets/generated_images/soap_strawberry_scent.png";
-import soapBubblegum from "@assets/generated_images/soap_bubblegum_scent.png";
-import soapPeppermint from "@assets/generated_images/soap_peppermint_scent.png";
-import soapCoconut from "@assets/generated_images/soap_coconut_scent.png";
-import soapApple from "@assets/generated_images/soap_apple_cinnamon.png";
-import soapLemon from "@assets/generated_images/soap_lemon_tart.png";
-import soapGreenTea from "@assets/generated_images/soap_green_tea_cucumber.png";
+// Dynamically import all soap images from the soaps folder
+const soapImagesGlob = import.meta.glob('@assets/soaps/**/*.{jfif,png,jpg,jpeg,webp}', { eager: true, import: 'default' });
+
+// Helper to get images for a specific soap folder
+const getSoapImages = (folderName: string): string[] => {
+  return Object.entries(soapImagesGlob)
+    .filter(([path]) => path.includes(`/soaps/${folderName}/`))
+    .map(([, url]) => url as string);
+};
 
 export type ProductStatus = 'available' | 'limited' | 'out_of_stock';
 
@@ -26,133 +19,135 @@ export interface Product {
   description: string;
   fullDescription: string;
   ingredients: string[];
-  image: string;
+  image: string;     // Main image (first in gallery)
+  gallery: string[]; // All images including main
   status: ProductStatus;
-  price?: string; // Optional since no e-commerce
+  price?: string;
 }
 
-const initialProducts: Product[] = [
+// Define the base product data (without images yet)
+const productDefinitions = [
   {
     id: 1,
+    folder: "algue-aloe-vera",
     name: "Algue et aloe vera",
     scent: "Frais & Marin",
     description: "Un savon rafraîchissant aux notes marines, idéal pour une sensation de pureté.",
     fullDescription: "Inspiré par la nature, ce savon combine la fraîcheur des algues et la douceur de l’aloe vera pour un moment de bien-être apaisant.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Mica", "Extrait d'algue", "Aloe Vera"],
-    image: soapAlgue,
-    status: 'available'
+    status: 'available' as ProductStatus
   },
   {
     id: 2,
+    folder: "biscuit-mangue",
     name: "Biscuit à la mangue",
     scent: "Gourmand & Exotique",
     description: "Un parfum sucré et chaleureux qui rappelle les douceurs maison.",
     fullDescription: "Ce savon aux notes de mangue et de biscuit offre une expérience réconfortante et joyeuse à chaque utilisation.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Mica"],
-    image: soapMango,
-    status: 'available'
+    status: 'available' as ProductStatus
   },
   {
     id: 3,
+    folder: "brandy-vanille",
     name: "Brandy à la vanille",
     scent: "Chaud & Enveloppant",
     description: "Une alliance élégante entre la douceur de la vanille et des notes chaleureuses.",
     fullDescription: "Un savon au parfum riche et raffiné, parfait pour un moment de détente et de confort.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Mica", "Gousse de vanille"],
-    image: soapBrandy,
-    status: 'limited'
+    status: 'limited' as ProductStatus
   },
   {
     id: 4,
+    folder: "cerise",
     name: "Cerise",
     scent: "Fruité & Vif",
     description: "Un parfum sucré et pétillant qui éveille les sens.",
     fullDescription: "Ce savon à la cerise apporte une touche de fraîcheur et de gourmandise au quotidien.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Mica"],
-    image: soapCherry,
-    status: 'available'
+    status: 'available' as ProductStatus
   },
   {
     id: 5,
+    folder: "fraise",
     name: "Fraise",
     scent: "Doux & Joyeux",
     description: "Une fragrance sucrée et légère, pleine de douceur.",
     fullDescription: "Le savon fraise évoque la simplicité et la fraîcheur des fruits d’été.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Mica"],
-    image: soapStrawberry,
-    status: 'available'
+    status: 'available' as ProductStatus
   },
   {
     id: 6,
+    folder: "gomme-balloune",
     name: "Gomme balloune",
     scent: "Ludique & Nostalgique",
     description: "Un parfum amusant qui rappelle l’enfance.",
     fullDescription: "Ce savon coloré et joyeux est parfait pour ajouter une touche de fantaisie à la routine.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Mica"],
-    image: soapBubblegum,
-    status: 'available'
+    status: 'available' as ProductStatus
   },
   {
     id: 7,
+    folder: "menthe-poivree",
     name: "Menthe poivrée",
     scent: "Énergisant & Frais",
     description: "Un savon vivifiant aux notes fraîches et tonifiantes.",
     fullDescription: "La menthe poivrée procure une sensation de fraîcheur intense et revitalisante.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Huile essentielle de Menthe Poivrée", "Mica"],
-    image: soapPeppermint,
-    status: 'available'
+    status: 'available' as ProductStatus
   },
   {
     id: 8,
+    folder: "noix-de-coco",
     name: "Noix de coco",
     scent: "Tropical & Doux",
     description: "Un parfum crémeux et enveloppant.",
     fullDescription: "Ce savon à la noix de coco évoque l’évasion et la douceur des îles.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Lait de coco"],
-    image: soapCoconut,
-    status: 'available'
+    status: 'available' as ProductStatus
   },
   {
     id: 9,
+    folder: "pomme-cannelle",
     name: "Pomme et cannelle",
     scent: "Chaleureux & Réconfortant",
     description: "Une fragrance douce et épicée.",
     fullDescription: "L’association de la pomme et de la cannelle crée une atmosphère chaleureuse et apaisante.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Cannelle en poudre"],
-    image: soapApple,
-    status: 'available'
+    status: 'available' as ProductStatus
   },
   {
     id: 10,
+    folder: "tarte-citron",
     name: "Tartes aux citrons",
     scent: "Frais & Gourmand",
     description: "Un parfum acidulé et sucré à la fois.",
     fullDescription: "Ce savon rappelle la douceur d’une tarte au citron fraîchement préparée.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Mica", "Zeste de citron"],
-    image: soapLemon,
-    status: 'available'
+    status: 'available' as ProductStatus
   },
   {
     id: 11,
+    folder: "the-vert-concombre",
     name: "Thé vert et concombre",
     scent: "Frais & Zen",
     description: "Une senteur légère et apaisante.",
     fullDescription: "Le thé vert et le concombre offrent une sensation de fraîcheur et d’équilibre.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Extrait de thé vert", "Jus de concombre"],
-    image: soapGreenTea,
-    status: 'available'
-  },
-  {
-    id: 12,
-    name: "Douceur de Lavande",
-    scent: "Lavande & Karité",
-    description: "Un classique apaisant pour une détente absolue avant le coucher.",
-    fullDescription: "Ce savon est fabriqué à la main avec des huiles végétales soigneusement sélectionnées pour leur douceur et leurs bienfaits. L'huile essentielle de lavande procure un effet apaisant immédiat, idéal pour le bain du soir.",
-    ingredients: ["Huile d'olive", "Beurre de Karité", "Huile de Coco", "Huile essentielle de Lavande", "Fleurs de Lavande séchées"],
-    image: soapLavender,
-    status: 'available'
-  },
+    status: 'available' as ProductStatus
+  }
 ];
+
+// Combine definitions with images
+const initialProducts: Product[] = productDefinitions.map(def => {
+  const images = getSoapImages(def.folder);
+  return {
+    ...def,
+    image: images.length > 0 ? images[0] : "https://placehold.co/600x800", // Fallback
+    gallery: images,
+  };
+});
 
 interface ProductContextType {
   products: Product[];
