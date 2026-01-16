@@ -9,7 +9,7 @@ export function Footer({ showCTA = true, showMap = true }: { showCTA?: boolean, 
         
         {/* CTA Section */}
         {showCTA && (
-          <div className="bg-white rounded-3xl p-12 shadow-sm text-center max-w-4xl mx-auto -mt-32 mb-16 border border-secondary/20 relative overflow-hidden">
+          <div className={`bg-white rounded-3xl p-12 shadow-sm text-center max-w-4xl mx-auto mb-16 border border-secondary/20 relative overflow-hidden ${showMap ? "-mt-32" : ""}`}>
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-secondary via-accent to-secondary"></div>
             <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">Envie d’en savoir plus sur nos savons ?</h2>
             <p className="text-muted-foreground mb-8 max-w-lg mx-auto">

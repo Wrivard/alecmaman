@@ -125,7 +125,7 @@ export default function ProductsPage() {
         </section>
 
         {/* Merged Map & Advice Section */}
-        <section className="bg-primary/5 py-16">
+        <section className="bg-primary/5 pt-16 pb-24">
           <div className="container mx-auto px-6">
             <div className="bg-white rounded-3xl overflow-hidden shadow-lg border border-secondary/20">
               <div className="grid grid-cols-1 lg:grid-cols-2">
