@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import heroImage from "@assets/9833c348-759b-48c8-9958-1dcefda1f63a_1768587366892.jfif"; 
+import { MapPin } from "lucide-react";
+import heroImage from "@assets/generated_images/artisanal_soap_market_display.png";
 
 export function Hero() {
   return (
@@ -23,17 +25,32 @@ export function Hero() {
             <span className="text-primary italic">naturels</span> et remplis d'amour
           </h1>
           
-          <p className="text-lg text-muted-foreground max-w-md leading-relaxed">
-            Chaque savon est fabriqué à la main avec des ingrédients simples et soigneusement choisis, pour prendre soin de votre peau tout en douceur.
-          </p>
+          <div className="space-y-4">
+            <p className="text-lg text-muted-foreground max-w-md leading-relaxed">
+              Chaque savon est fabriqué à la main avec des ingrédients simples et soigneusement choisis, pour prendre soin de votre peau tout en douceur.
+            </p>
+
+            <div className="bg-white/60 backdrop-blur-sm p-4 rounded-2xl border border-primary/10 max-w-md">
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-primary shrink-0 mt-1" />
+                <p className="text-sm text-foreground/80 font-medium">
+                  Retrouvez-nous aux marchés d'artisans durant la saison estivale à Ste-Félicité, Matane, Grosses-Roche, Cap-Chat ainsi que plusieurs marchés de Noël.
+                </p>
+              </div>
+            </div>
+          </div>
           
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8 h-12 text-base">
-              Découvrir nos savons
-            </Button>
-            <Button size="lg" variant="outline" className="rounded-full border-primary/20 hover:bg-primary/5 px-8 h-12 text-base text-foreground">
-              Nous contacter
-            </Button>
+            <Link href="/products">
+              <Button size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8 h-12 text-base w-full sm:w-auto">
+                Découvrir nos savons
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button size="lg" variant="outline" className="rounded-full border-primary/20 hover:bg-primary/5 px-8 h-12 text-base text-foreground w-full sm:w-auto">
+                Commander / Contact
+              </Button>
+            </Link>
           </div>
         </motion.div>
 
@@ -48,7 +65,7 @@ export function Hero() {
           <div className="absolute inset-0 rounded-t-[10rem] lg:rounded-t-[20rem] overflow-hidden shadow-2xl">
             <img 
               src={heroImage} 
-              alt="Artisan soap maker" 
+              alt="Artisan soap maker market stall" 
               className="w-full h-full object-cover"
             />
           </div>

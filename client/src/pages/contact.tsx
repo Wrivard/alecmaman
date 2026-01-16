@@ -59,11 +59,11 @@ export default function ContactPage() {
                   <div className="space-y-4">
                     <div className="flex items-center space-x-3 text-muted-foreground">
                       <Mail className="w-5 h-5 text-primary" />
-                      <span>contact@lasavonniere.com</span>
+                      <span>ysabellemichaud@gmail.com</span>
                     </div>
                     <div className="flex items-center space-x-3 text-muted-foreground">
                       <MapPin className="w-5 h-5 text-primary" />
-                      <span>Provence, France</span>
+                      <span>Sainte-Félicité / Matane, Québec</span>
                     </div>
                     <div className="flex items-center space-x-3 text-muted-foreground">
                       <Instagram className="w-5 h-5 text-primary" />
@@ -74,7 +74,7 @@ export default function ContactPage() {
 
                 <div className="pt-8 border-t border-primary/10">
                    <p className="text-xs text-muted-foreground uppercase tracking-widest text-center">
-                     Fabrication Artisanale & Locale
+                     Ysabelle Michaud — Fabrication Artisanale
                    </p>
                 </div>
               </div>

@@ -23,9 +23,9 @@ export function MapCTASection() {
                   </Button>
                 </Link>
                 <div className="text-left text-sm text-muted-foreground">
-                  <p className="font-bold text-foreground">La Savonnière</p>
+                  <p className="font-bold text-foreground">Ysabelle Michaud</p>
                   <p>Sainte-Félicité, Québec</p>
-                  <p>contact@lasavonniere.com</p>
+                  <p>ysabellemichaud@gmail.com</p>
                 </div>
               </div>
             </div>
