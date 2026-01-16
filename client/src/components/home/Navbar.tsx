@@ -20,10 +20,9 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Accueil", href: "/" },
-    { name: "Nos Savons", href: "#products" },
-    { name: "Ingrédients", href: "#ingredients" },
-    { name: "À Propos", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Nos Savons", href: "/savons" },
+    { name: "À Propos", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (

@@ -1,0 +1,241 @@
+📄 PAGE 2 — « NOS SAVONS » (CMS-DRIVEN)
+🎯 Objectif
+
+Présenter tous les savons disponibles de façon élégante, claire et inspirante, sans e-commerce, mais pensé dès le départ pour être connecté à un CMS.
+
+🧠 Direction design
+
+Même univers que la homepage
+
+Très visuel
+
+Grille aérée
+
+Sensation de galerie / boutique artisanale
+
+🧱 Structure de la page
+1. HERO SIMPLE
+
+Layout
+
+Pas trop haut
+
+Fond clair ou texture papier
+
+Texte centré
+
+Contenu
+
+H1 :
+
+Nos savons artisanaux
+
+Sous-texte :
+
+Découvrez notre sélection de savons faits à la main, chacun avec sa personnalité et son parfum unique.
+
+2. GRILLE DES SAVONS (connectée au CMS)
+
+Layout
+
+Grille responsive (2 / 3 / 4 colonnes)
+
+Cards arrondies, élégantes
+
+Chaque carte savon
+
+Image du savon
+
+Nom
+
+Parfum principal
+
+Ingrédients clés (court)
+
+Badge visuel :
+
+Disponible
+
+Édition limitée
+
+Rupture
+
+CTA discret :
+
+« Voir le savon »
+
+⚠️ Important
+
+Cette section doit être 100 % dynamique
+
+Aucune donnée en dur (hardcoded)
+
+3. MICRO-TEXTE RASSURANT
+
+Sous la grille :
+
+Tous nos savons sont fabriqués à la main en petites quantités, avec des ingrédients simples et naturels.
+
+📄 PAGE 3 — « SAVON » (PAGE DÉTAIL)
+🎯 Objectif
+
+Mettre un savon en valeur comme une pièce unique, presque comme un objet de soin ou de décoration.
+
+🧱 Structure
+1. HEADER PRODUIT
+
+Layout
+
+Image grande à gauche
+
+Texte à droite
+
+Fond très clair
+
+Contenu
+
+Nom du savon (H1)
+
+Parfum
+
+Description courte
+
+Badge disponibilité
+
+2. DESCRIPTION DÉTAILLÉE
+
+Texte
+
+Ce savon est fabriqué à la main avec des huiles végétales soigneusement sélectionnées pour leur douceur et leurs bienfaits.
+
+3. INGRÉDIENTS
+
+Layout
+
+Liste élégante ou puces stylisées
+
+Exemple
+
+Huile d’olive
+
+Huile de coco
+
+Huile de tournesol
+
+Fragrance
+
+Mica
+
+4. CTA SOFT
+
+Intéressé par ce savon ?
+Bouton : Nous contacter
+
+⚠️ Pas de prix, pas de panier.
+
+📄 PAGE 4 — « À PROPOS »
+🎯 Objectif
+
+Créer une connexion émotionnelle, montrer l’humain derrière les savons.
+
+🧱 Structure
+1. HERO ÉMOTION
+
+Titre
+
+Une passion pour le fait-main
+
+Texte
+
+La savonnerie est née d’un amour pour les ingrédients simples, les gestes authentiques et les petits rituels du quotidien.
+
+2. HISTOIRE
+
+Texte fluide, chaleureux :
+
+Pourquoi la savonnerie a commencé
+
+L’importance du fait-main
+
+Le respect de la peau
+
+3. VALEURS
+
+Cartes
+
+Authenticité
+
+Simplicité
+
+Douceur
+
+Fabrication locale
+
+📄 PAGE 5 — « CONTACT »
+🎯 Objectif
+
+Faciliter le contact sans pression commerciale.
+
+🧱 Structure
+1. INTRO
+
+Une question ? Une demande spéciale ?
+Écrivez-nous, nous serons ravis de vous répondre.
+
+2. FORMULAIRE
+
+Champs :
+
+Nom
+
+Courriel
+
+Message
+
+Bouton :
+
+« Envoyer le message »
+
+3. INFOS COMPLÉMENTAIRES
+
+Réseaux sociaux
+
+Ville / région
+
+Mention artisanale
+
+🔐 PAGE 6 — « ADMIN / CMS » (préparation)
+
+⚠️ Non visible au public
+
+À prévoir :
+
+/admin
+
+Login sécurisé
+
+Gestion :
+
+Ajouter / modifier / supprimer un savon
+
+Upload image
+
+Modifier disponibilité
+
+Modifier description
+
+🧩 Consignes globales pour TOUTES les pages
+
+Même palette
+
+Même typos
+
+Transitions douces
+
+Responsive parfait
+
+SEO prêt
+
+CMS-friendly
+
+Aucun e-commerce pour l’instant
