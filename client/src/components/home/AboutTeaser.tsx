@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import aboutImg from "@assets/image_1768586708058.png"; // Woman looking at camera with soap
+import aboutImg from "@assets/2e1ff457-d783-4625-ac19-0048389a8d2e_1768587366893.jfif";
 
 export function AboutTeaser() {
   return (

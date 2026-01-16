@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 // Import assets
-import soapLavender from "@assets/generated_images/artisanal_lavender_soap_bar_on_linen.png";
-import soapHoney from "@assets/generated_images/artisanal_honey_oat_soap_bar.png";
-import soapRose from "@assets/generated_images/artisanal_rose_clay_soap_bar.png";
-import soapHands from "@assets/image_1768586718005.png"; 
+import soapLavender from "@assets/a83f4a1e-80f4-4000-89a4-81ff5dde47b7_1768587366893.jfif";
+import soapHoney from "@assets/e5ee00a4-dd3d-4cfb-ab07-19c533cbdd6b_1768587366893.jfif";
+import soapRose from "@assets/faa14cf3-baec-4057-95e2-14ae745a13a9_1768587366893.jfif";
+import soapHands from "@assets/2511d2e5-f227-44f9-97da-80ec1b0a852c_1768587366893.jfif"; 
 
 const products = [
   {

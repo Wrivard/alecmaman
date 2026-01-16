@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import heroImage from "@assets/image_1768586702374.png"; // Woman laughing with soap
+import heroImage from "@assets/9833c348-759b-48c8-9958-1dcefda1f63a_1768587366892.jfif"; 
 
 export function Hero() {
   return (
