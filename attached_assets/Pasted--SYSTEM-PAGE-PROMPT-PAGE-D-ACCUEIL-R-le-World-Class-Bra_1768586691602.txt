@@ -1,0 +1,237 @@
+🎨 SYSTEM / PAGE PROMPT — PAGE D’ACCUEIL
+
+Rôle : World-Class Brand Designer & Frontend Architect
+
+🎯 Objectif
+
+Créer une page d’accueil vitrine premium pour une marque de savons artisanaux faits à la main, avec une esthétique girly, douce, élégante et moderne.
+Le site ne vend pas en ligne : il inspire, rassure et donne envie de découvrir les savons et de contacter la marque.
+
+Le design doit donner l’impression d’une marque artisanale haut de gamme, chaleureuse, féminine, authentique et soignée.
+
+🧠 Direction créative & branding
+Univers visuel
+
+Féminin mais pas enfantin
+
+Doux, naturel, apaisant
+
+Sensation : prendre soin de soi, rituel, fait avec amour
+
+Palette de couleurs (exemple, ajustable)
+
+Beige crème / ivoire (fond principal)
+
+Rose poudré / nude
+
+Lavande douce ou vert sauge
+
+Accent doré subtil ou brun chaud
+
+Noir très doux pour le texte (jamais noir pur)
+
+Typographie
+
+Titres (H1–H3)
+Serif élégante ou script raffinée
+→ féminine, artisanale, intemporelle
+
+Textes
+Sans-serif moderne, lisible, légère
+
+Hiérarchie claire, beaucoup d’espace blanc
+
+🧱 Structure de la page d’accueil
+1. HERO SECTION — émotion & identité
+
+Objectif : coup de cœur immédiat
+
+Layout
+
+Pleine largeur
+
+Grande photo lifestyle de savons artisanaux
+
+Lumière douce, texture naturelle
+
+Contenu
+
+Petit texte au-dessus du titre (eyebrow text) :
+
+Savons artisanaux faits à la main
+
+Titre principal (H1) :
+
+Des savons doux, naturels et remplis d’amour
+
+Sous-texte :
+
+Chaque savon est fabriqué à la main avec des ingrédients simples et soigneusement choisis, pour prendre soin de votre peau tout en douceur.
+
+Bouton principal :
+
+« Découvrir nos savons »
+
+Bouton secondaire (plus discret) :
+
+« Nous contacter »
+
+Style
+
+Animation légère au scroll
+
+Boutons arrondis
+
+Ombres très subtiles
+
+2. SECTION — Pourquoi nos savons
+
+Objectif : rassurer et valoriser le savoir-faire
+
+Layout
+
+3 ou 4 cartes alignées
+
+Icônes minimalistes, rondes, douces
+
+Cartes
+
+Faits à la main
+
+Chaque savon est fabriqué artisanalement avec soin et passion.
+
+Ingrédients simples
+
+Des huiles naturelles sélectionnées pour leur douceur et leur qualité.
+
+Doux pour la peau
+
+Convient à un usage quotidien et aux peaux sensibles.
+
+Production locale
+
+Fabriqué localement avec amour.
+
+3. SECTION — Nos savons (aperçu CMS)
+
+Objectif : mettre en valeur les produits
+
+Layout
+
+Grille élégante de 3 à 6 savons
+
+Cards arrondies, fond clair
+
+Chaque carte savon
+
+Photo du savon
+
+Nom
+
+Parfum principal
+
+Petit extrait descriptif
+
+Étiquette visuelle :
+
+« Disponible » ou « Édition limitée »
+
+Bouton
+
+« Voir tous les savons »
+
+⚠️ Cette section doit être pensée pour être connectée à un CMS plus tard.
+
+4. SECTION — Ingrédients & valeurs
+
+Objectif : créer de la confiance
+
+Layout
+
+Texte + image
+
+Alternance gauche/droite
+
+Contenu
+
+Titre :
+
+Des ingrédients choisis avec soin
+
+Texte :
+
+Nous croyons en la simplicité. Nos savons sont composés d’huiles végétales de qualité, sélectionnées pour leurs bienfaits et leur douceur.
+
+Liste courte :
+
+Huile d’olive
+
+Huile de coco
+
+Huile de tournesol
+
+Fragrances délicates
+
+5. SECTION — À propos (teaser)
+
+Objectif : humaniser la marque
+
+Contenu
+
+Titre :
+
+Derrière chaque savon, une passion
+
+Texte :
+
+La savonnerie est née d’un amour pour le fait-main, les ingrédients naturels et les petits rituels du quotidien.
+
+Bouton :
+
+« En savoir plus »
+
+6. CTA FINAL — Contact
+
+Objectif : inciter à l’action sans pression
+
+Fond
+
+Couleur douce contrastante (rose poudré / lavande)
+
+Texte
+
+Titre :
+
+Envie d’en savoir plus sur nos savons ?
+
+Sous-texte :
+
+Écrivez-nous pour toute question ou demande.
+
+Bouton principal :
+
+« Nous contacter »
+
+✨ Détails UX / UI
+
+Animations subtiles (fade, slide)
+
+Aucun élément agressif
+
+Responsive mobile parfait
+
+SEO friendly
+
+Ton chaleureux, humain, doux
+
+🧩 Contraintes techniques
+
+Code propre, moderne
+
+Composants réutilisables
+
+Prévoir une intégration CMS future
+
+Pas de e-commerce
+
+Français uniquement
