@@ -2,35 +2,39 @@ import { Button } from "@/components/ui/button";
 import { Mail, Instagram, Facebook } from "lucide-react";
 import logo from "@assets/Group_21_1768587087985.png";
 
-export function Footer() {
+export function Footer({ showCTA = true, showMap = true }: { showCTA?: boolean, showMap?: boolean }) {
   return (
-    <footer id="contact" className="bg-[#F9F7F2] pt-20 pb-10 border-t border-primary/10">
+    <footer id="contact" className={`bg-[#F9F7F2] pb-10 border-t border-primary/10 ${showCTA ? "pt-20" : "pt-10"}`}>
       <div className="container mx-auto px-6">
         
         {/* CTA Section */}
-        <div className="bg-white rounded-3xl p-12 shadow-sm text-center max-w-4xl mx-auto -mt-32 mb-16 border border-secondary/20 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-secondary via-accent to-secondary"></div>
-          <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">Envie d’en savoir plus sur nos savons ?</h2>
-          <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-            Écrivez-nous pour toute question, commande personnalisée ou simplement pour dire bonjour.
-          </p>
-          <Button size="lg" className="rounded-full px-10 h-12 text-base shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
-            Nous contacter
-          </Button>
-        </div>
+        {showCTA && (
+          <div className="bg-white rounded-3xl p-12 shadow-sm text-center max-w-4xl mx-auto -mt-32 mb-16 border border-secondary/20 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-secondary via-accent to-secondary"></div>
+            <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">Envie d’en savoir plus sur nos savons ?</h2>
+            <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
+              Écrivez-nous pour toute question, commande personnalisée ou simplement pour dire bonjour.
+            </p>
+            <Button size="lg" className="rounded-full px-10 h-12 text-base shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
+              Nous contacter
+            </Button>
+          </div>
+        )}
 
         {/* Map Section */}
-        <div className="w-full h-[400px] rounded-3xl overflow-hidden shadow-sm border border-secondary/20 mb-16 grayscale hover:grayscale-0 transition-all duration-700">
-          <iframe 
-            src="https://maps.google.com/maps?q=Sainte-Félicité,Quebec&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }} 
-            allowFullScreen={true} 
-            loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
+        {showMap && (
+          <div className="w-full h-[400px] rounded-3xl overflow-hidden shadow-sm border border-secondary/20 mb-16 grayscale hover:grayscale-0 transition-all duration-700">
+            <iframe 
+              src="https://maps.google.com/maps?q=Sainte-Félicité,Quebec&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen={true} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-center md:text-left">
           <div className="space-y-4 flex flex-col items-center md:items-start">
