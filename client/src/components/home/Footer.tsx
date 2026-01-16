@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Mail, Instagram, Facebook } from "lucide-react";
 import logo from "@assets/Group_21_1768587087985.png";
@@ -15,9 +16,11 @@ export function Footer({ showCTA = true, showMap = true }: { showCTA?: boolean, 
             <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
               Écrivez-nous pour toute question, commande personnalisée ou simplement pour dire bonjour.
             </p>
-            <Button size="lg" className="rounded-full px-10 h-12 text-base shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
-              Nous contacter
-            </Button>
+            <Link href="/contact">
+              <Button size="lg" className="rounded-full px-10 h-12 text-base shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
+                Commander
+              </Button>
+            </Link>
           </div>
         )}
 

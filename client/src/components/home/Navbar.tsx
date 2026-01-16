@@ -22,7 +22,6 @@ export function Navbar() {
     { name: "Accueil", href: "/" },
     { name: "Nos Savons", href: "/savons" },
     { name: "À Propos", href: "/about" },
-    { name: "Contact", href: "/contact" },
   ];
 
   return (
