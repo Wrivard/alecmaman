@@ -82,12 +82,12 @@ export default function ProductsPage() {
         </section>
 
         {/* The Missing Component: "Savoir-Faire" Section */}
-        <section className="py-24 bg-white border-t border-primary/5">
+        <section className="py-24 bg-[#2C2420] text-[#F9F7F2]">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
               <div className="lg:col-span-1 text-center lg:text-left">
-                 <h2 className="font-serif text-3xl text-foreground mb-4">L'Art de la<br/>Savonnerie</h2>
-                 <p className="text-muted-foreground text-sm leading-relaxed">
+                 <h2 className="font-serif text-3xl text-[#F9F7F2] mb-4">L'Art de la<br/>Savonnerie</h2>
+                 <p className="text-[#F9F7F2]/70 text-sm leading-relaxed">
                    Nous respectons un processus lent et méticuleux pour garantir une qualité d'exception à chaque barre.
                  </p>
               </div>
@@ -110,12 +110,12 @@ export default function ProductsPage() {
                     desc: "Fabriqué par lot de 12 savons uniquement, pour un contrôle parfait." 
                   }
                 ].map((item, idx) => (
-                  <div key={idx} className="flex flex-col items-center text-center p-6 bg-[#F9F7F2] rounded-xl hover:bg-secondary/20 transition-colors">
-                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary shadow-sm mb-4">
+                  <div key={idx} className="flex flex-col items-center text-center p-6 bg-[#F9F7F2]/5 rounded-xl hover:bg-[#F9F7F2]/10 transition-colors border border-[#F9F7F2]/10">
+                    <div className="w-12 h-12 bg-[#F9F7F2]/10 rounded-full flex items-center justify-center text-primary shadow-sm mb-4">
                       {item.icon}
                     </div>
                     <h3 className="font-serif text-lg mb-2">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    <p className="text-sm text-[#F9F7F2]/60">{item.desc}</p>
                   </div>
                 ))}
               </div>

@@ -12,7 +12,8 @@ import ProductDetailPage from "@/pages/product-detail";
 import AboutPage from "@/pages/about";
 import ContactPage from "@/pages/contact";
 import AdminPage from "@/pages/admin";
-import ScrollToTop from "@/components/ui/scroll-to-top"; // We'll need to create this
+import ScrollToTop from "@/components/ui/scroll-to-top";
+import { MessengerButton } from "@/components/ui/messenger-button";
 
 function Router() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <ScrollToTop />
+          <MessengerButton />
           <Router />
         </TooltipProvider>
       </ProductProvider>
