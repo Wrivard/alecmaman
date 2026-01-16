@@ -4,7 +4,7 @@ import heroImage from "@assets/9833c348-759b-48c8-9958-1dcefda1f63a_176858736689
 
 export function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex items-center pt-20 overflow-hidden bg-[#F9F7F2]">
+    <section className="relative w-full min-h-[90vh] flex items-center pt-10 pb-20 overflow-hidden bg-[#F9F7F2]">
       <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
         {/* Text Content */}

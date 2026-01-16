@@ -84,7 +84,7 @@ export default function ContactPage() {
         </div>
       </main>
 
-      <Footer />
+      <Footer showCTA={false} showMap={false} />
     </div>
   );
 }

@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-secondary selection:text-secondary-foreground">
       <Navbar />
-      <main>
+      <main className="pt-20">
         <Hero />
         <Features />
         <ProductGrid />

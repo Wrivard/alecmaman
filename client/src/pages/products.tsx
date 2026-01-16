@@ -22,7 +22,7 @@ export default function ProductsPage() {
       
       <main>
         {/* Collection Hero */}
-        <section className="relative pt-40 pb-20 bg-[#F9F7F2] overflow-hidden">
+        <section className="relative pt-32 pb-20 bg-[#F9F7F2] overflow-hidden">
           {/* Decorative Background Elements */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
