@@ -125,9 +125,9 @@ export default function ProductsPage() {
         </section>
 
         {/* Merged Map & Advice Section */}
-        <section className="bg-primary/5 pt-16 pb-0">
+        <section className="bg-primary/5 py-16">
           <div className="container mx-auto px-6">
-            <div className="bg-white rounded-t-3xl overflow-hidden shadow-lg border border-secondary/20">
+            <div className="bg-white rounded-3xl overflow-hidden shadow-lg border border-secondary/20">
               <div className="grid grid-cols-1 lg:grid-cols-2">
                 {/* Content Side */}
                 <div className="p-12 lg:p-16 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
@@ -170,7 +170,7 @@ export default function ProductsPage() {
         </section>
       </main>
 
-      <Footer showCTA={false} showMap={false} />
+      <Footer showCTA={true} showMap={false} />
     </div>
   );
 }
