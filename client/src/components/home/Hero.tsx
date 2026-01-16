@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
-import heroImage from "@assets/generated_images/artisanal_soap_market_display.png";
+import heroImage from "@assets/image_1768591455547.png";
 
 export function Hero() {
   return (
