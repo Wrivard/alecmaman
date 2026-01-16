@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Instagram, Facebook } from "lucide-react";
+import logo from "@assets/Group_21_1768587087985.png";
 
 export function Footer() {
   return (
@@ -19,8 +20,8 @@ export function Footer() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-center md:text-left">
-          <div className="space-y-4">
-            <h3 className="font-serif text-2xl font-bold text-primary">La Savonnière</h3>
+          <div className="space-y-4 flex flex-col items-center md:items-start">
+            <img src={logo} alt="La Savonnière" className="w-48 h-auto mb-2" />
             <p className="text-muted-foreground max-w-xs mx-auto md:mx-0">
               Des savons artisanaux créés avec amour, patience et des ingrédients 100% naturels.
             </p>

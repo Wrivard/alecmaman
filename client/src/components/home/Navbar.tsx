@@ -4,6 +4,8 @@ import { Menu, X, ShoppingBag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
+import logo from "@assets/Group_21_1768587087985.png";
+
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -27,15 +29,17 @@ export function Navbar() {
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/90 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6"
+        isScrolled ? "bg-background/90 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-4"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-serif font-bold text-primary tracking-wide cursor-pointer hover:opacity-80 transition-opacity">
-            La Savonnière
+        <Link href="/">
+          <a className="cursor-pointer hover:opacity-80 transition-opacity">
+            <img src={logo} alt="La Savonnière" className="h-16 w-auto object-contain" />
+          </a>
         </Link>
 
         {/* Desktop Menu */}
