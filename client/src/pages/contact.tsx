@@ -1,12 +1,17 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/home/Navbar";
 import { Footer } from "@/components/home/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Mail, Instagram } from "lucide-react";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { MapPin, Mail, Instagram, Truck, Store } from "lucide-react";
 
 export default function ContactPage() {
+  const [deliveryMethod, setDeliveryMethod] = useState<"shipping" | "pickup">("shipping");
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <Navbar />
@@ -27,6 +32,43 @@ export default function ContactPage() {
               {/* Form Side */}
               <div className="md:col-span-2 p-8 md:p-12">
                 <form className="space-y-6">
+                  {/* Delivery Method Selection */}
+                  <div className="space-y-3">
+                    <label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Mode de réception</label>
+                    <RadioGroup 
+                      defaultValue="shipping" 
+                      className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+                      onValueChange={(value) => setDeliveryMethod(value as "shipping" | "pickup")}
+                    >
+                      <div>
+                        <RadioGroupItem value="shipping" id="shipping" className="peer sr-only" />
+                        <Label
+                          htmlFor="shipping"
+                          className="flex flex-col items-center justify-between rounded-xl border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer transition-all h-full"
+                        >
+                          <Truck className="mb-3 h-6 w-6 text-muted-foreground peer-data-[state=checked]:text-primary" />
+                          <div className="text-center">
+                            <span className="block font-semibold">Livraison</span>
+                            <span className="text-xs text-muted-foreground mt-1">Expédié par la poste</span>
+                          </div>
+                        </Label>
+                      </div>
+                      <div>
+                        <RadioGroupItem value="pickup" id="pickup" className="peer sr-only" />
+                        <Label
+                          htmlFor="pickup"
+                          className="flex flex-col items-center justify-between rounded-xl border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer transition-all h-full"
+                        >
+                          <Store className="mb-3 h-6 w-6 text-muted-foreground peer-data-[state=checked]:text-primary" />
+                          <div className="text-center">
+                            <span className="block font-semibold">Cueillette</span>
+                            <span className="text-xs text-muted-foreground mt-1">Au marché ou atelier</span>
+                          </div>
+                        </Label>
+                      </div>
+                    </RadioGroup>
+                  </div>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Votre Nom</label>
@@ -43,6 +85,25 @@ export default function ContactPage() {
                     <label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Votre Courriel</label>
                     <Input type="email" placeholder="jean@exemple.com" className="bg-background/50 border-input focus:border-primary" />
                   </div>
+
+                  {/* Conditional Address Fields */}
+                  {deliveryMethod === "shipping" && (
+                    <motion.div 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="space-y-4 overflow-hidden"
+                    >
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Adresse de livraison</label>
+                        <Input placeholder="123 Rue Principale" className="bg-background/50 border-input focus:border-primary" />
+                      </div>
+                      <div className="grid grid-cols-2 gap-4">
+                        <Input placeholder="Ville" className="bg-background/50 border-input focus:border-primary" />
+                        <Input placeholder="Code Postal" className="bg-background/50 border-input focus:border-primary" />
+                      </div>
+                    </motion.div>
+                  )}
                   
                   <div className="space-y-2">
                     <label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Votre Commande</label>
