@@ -44,17 +44,17 @@ export function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-            >
-              {link.name}
-            </a>
+            <Link key={link.name} href={link.href}>
+              <a className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                {link.name}
+              </a>
+            </Link>
           ))}
-          <Button variant="outline" size="sm" className="rounded-full border-primary/30 hover:bg-primary/5 hover:text-primary">
-            Nous Contacter
-          </Button>
+          <Link href="/contact">
+            <Button variant="outline" size="sm" className="rounded-full border-primary/30 hover:bg-primary/5 hover:text-primary">
+              Commander
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -77,14 +77,14 @@ export function Navbar() {
           >
             <div className="flex flex-col p-6 space-y-4">
               {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-lg font-medium text-foreground hover:text-primary"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </a>
+                <Link key={link.name} href={link.href}>
+                  <a
+                    className="text-lg font-medium text-foreground hover:text-primary"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                </Link>
               ))}
             </div>
           </motion.div>

@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useLocation } from "wouter";
 import { Navbar } from "@/components/home/Navbar";
 import { Footer } from "@/components/home/Footer";
 import { Button } from "@/components/ui/button";
@@ -10,7 +11,18 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { MapPin, Mail, Instagram, Truck, Store } from "lucide-react";
 
 export default function ContactPage() {
+  const [location] = useLocation();
   const [deliveryMethod, setDeliveryMethod] = useState<"shipping" | "pickup">("shipping");
+  const [orderMessage, setOrderMessage] = useState("");
+
+  useEffect(() => {
+    // Simple query param parsing since wouter's useSearch isn't always available or behaves differently
+    const searchParams = new URLSearchParams(window.location.search);
+    const product = searchParams.get("product");
+    if (product) {
+      setOrderMessage(`Bonjour, je souhaiterais commander le savon : ${product}.\n\nQuantité désirée : `);
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
@@ -107,7 +119,12 @@ export default function ContactPage() {
                   
                   <div className="space-y-2">
                     <label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Votre Commande</label>
-                    <Textarea placeholder="Ex: 3 savons Lavande, 2 savons Avoine et Miel..." className="min-h-[150px] bg-background/50 border-input focus:border-primary" />
+                    <Textarea 
+                      placeholder="Ex: 3 savons Lavande, 2 savons Avoine et Miel..." 
+                      className="min-h-[150px] bg-background/50 border-input focus:border-primary" 
+                      value={orderMessage}
+                      onChange={(e) => setOrderMessage(e.target.value)}
+                    />
                     <p className="text-xs text-muted-foreground">Indiquez les variétés et quantités désirées.</p>
                   </div>
 

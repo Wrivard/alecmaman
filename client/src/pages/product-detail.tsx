@@ -155,9 +155,9 @@ export default function ProductDetailPage() {
                 <p className="text-sm text-muted-foreground font-medium uppercase tracking-wide">
                   Intéressé par ce savon ?
                 </p>
-                <Link href="/contact">
+                <Link href={`/contact?product=${encodeURIComponent(product.name)}`}>
                   <Button size="lg" className="w-full sm:w-auto rounded-full px-8 text-base">
-                    Nous contacter
+                    Commander ce savon
                   </Button>
                 </Link>
                 <p className="text-xs text-muted-foreground mt-4">
