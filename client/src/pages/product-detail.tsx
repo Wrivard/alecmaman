@@ -8,6 +8,8 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Check, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { MapCTASection } from "@/components/shared/MapCTASection";
+
 const statusConfig: Record<ProductStatus, { label: string; className: string }> = {
   available: { label: "Disponible", className: "bg-green-100 text-green-800" },
   limited: { label: "Édition Limitée", className: "bg-amber-100 text-amber-800" },
@@ -165,9 +167,13 @@ export default function ProductDetailPage() {
             </motion.div>
           </div>
         </div>
+
+        <div className="mt-24">
+          <MapCTASection />
+        </div>
       </main>
 
-      <Footer />
+      <Footer showCTA={true} showMap={false} />
     </div>
   );
 }

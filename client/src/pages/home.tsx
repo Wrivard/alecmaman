@@ -6,6 +6,8 @@ import { Ingredients } from "@/components/home/Ingredients";
 import { AboutTeaser } from "@/components/home/AboutTeaser";
 import { Footer } from "@/components/home/Footer";
 
+import { MapCTASection } from "@/components/shared/MapCTASection";
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-secondary selection:text-secondary-foreground">
@@ -16,8 +18,9 @@ export default function Home() {
         <ProductGrid />
         <Ingredients />
         <AboutTeaser />
+        <MapCTASection />
       </main>
-      <Footer />
+      <Footer showCTA={true} showMap={false} />
     </div>
   );
 }

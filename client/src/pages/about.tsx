@@ -4,6 +4,8 @@ import { Footer } from "@/components/home/Footer";
 import aboutImg from "@assets/2e1ff457-d783-4625-ac19-0048389a8d2e_1768587366893.jfif";
 import { Heart, Leaf, Sun, Droplet } from "lucide-react";
 
+import { MapCTASection } from "@/components/shared/MapCTASection";
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
@@ -86,9 +88,11 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+
+        <MapCTASection />
       </main>
 
-      <Footer />
+      <Footer showCTA={true} showMap={false} />
     </div>
   );
 }
