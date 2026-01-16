@@ -1,0 +1,303 @@
+🧼 PROMPT — PAGE « NOS SAVONS » + PAGES INDIVIDUELLES
+
+Rôle : World-Class Product Designer & Frontend Engineer
+
+🎯 Objectif global
+
+Créer une présentation élégante et inspirante de tous les savons artisanaux disponibles, avec :
+
+une page “Nos savons” qui agit comme une galerie
+
+une page individuelle par savon, mettant chaque produit en valeur comme une pièce unique
+Le tout sans e-commerce, mais entièrement CMS-ready.
+
+🧠 Données CMS – Types de savons (à intégrer)
+
+Créer les entrées CMS suivantes, chacune avec :
+
+nom
+
+slug
+
+parfum
+
+image
+
+description courte
+
+description longue
+
+ingrédients
+
+disponibilité
+
+Liste des savons
+
+Algue et aloe vera
+
+Biscuit à la mangue
+
+Brandy à la vanille
+
+Cerise
+
+Fraise
+
+Gomme balloune
+
+Menthe poivrée
+
+Noix de coco
+
+Pomme et cannelle
+
+Tartes aux citrons
+
+Thé vert et concombre
+
+📄 PAGE « NOS SAVONS »
+🎨 Direction design
+
+Sensation de boutique artisanale haut de gamme
+
+Grille aérée
+
+Beaucoup d’espace blanc
+
+Cards douces, arrondies
+
+Typo élégante, féminine
+
+Interaction subtile au hover
+
+🧱 Structure
+1. Header de page
+
+Titre (H1)
+
+Nos savons artisanaux
+
+Sous-texte
+
+Chaque savon est fabriqué à la main avec soin, à partir d’ingrédients simples et naturels. Découvrez leurs parfums uniques.
+
+2. Grille des savons (CMS-driven)
+
+Layout
+
+Responsive (2 colonnes mobile, 3–4 desktop)
+
+Ordre libre ou alphabétique
+
+Chaque carte savon contient
+
+Image du savon
+
+Nom du savon
+
+Parfum mis en valeur
+
+Badge (ex : Disponible / Édition limitée)
+
+CTA discret :
+
+« Voir le savon »
+
+3. Micro-texte rassurant
+
+Nos savons sont fabriqués en petites quantités afin de préserver leur qualité et leur authenticité.
+
+📄 PAGES INDIVIDUELLES — SAVON
+🎨 Direction
+
+Chaque page doit donner l’impression que ce savon est spécial, presque comme un objet de soin personnel.
+
+🧱 Structure type (à réutiliser pour tous)
+1. Header produit
+
+Layout
+
+Image grande et lumineuse
+
+Fond très clair
+
+Texte à droite ou en dessous
+
+Contenu
+
+Nom du savon (H1)
+
+Parfum
+
+Badge disponibilité
+
+Description courte
+
+2. Description longue
+
+Texte chaleureux, sensoriel, artisanal.
+Ton doux, rassurant, féminin.
+
+3. Ingrédients
+
+Liste élégante, simple :
+
+Huile d’olive
+
+Huile de coco
+
+Huile de tournesol
+
+Fragrance
+
+Mica
+
+4. CTA doux
+
+Intéressé par ce savon ?
+Bouton : Nous contacter
+
+✨ CONTENU — DESCRIPTIONS PAR SAVON
+Algue et aloe vera
+
+Ambiance : fraîche, apaisante
+
+Description courte :
+
+Un savon rafraîchissant aux notes marines, idéal pour une sensation de pureté.
+
+Description longue :
+
+Inspiré par la nature, ce savon combine la fraîcheur des algues et la douceur de l’aloe vera pour un moment de bien-être apaisant.
+
+Biscuit à la mangue
+
+Ambiance : gourmande, exotique
+
+Description courte :
+
+Un parfum sucré et chaleureux qui rappelle les douceurs maison.
+
+Description longue :
+
+Ce savon aux notes de mangue et de biscuit offre une expérience réconfortante et joyeuse à chaque utilisation.
+
+Brandy à la vanille
+
+Ambiance : chaud, enveloppant
+
+Description courte :
+
+Une alliance élégante entre la douceur de la vanille et des notes chaleureuses.
+
+Description longue :
+
+Un savon au parfum riche et raffiné, parfait pour un moment de détente et de confort.
+
+Cerise
+
+Ambiance : fruitée, vive
+
+Description courte :
+
+Un parfum sucré et pétillant qui éveille les sens.
+
+Description longue :
+
+Ce savon à la cerise apporte une touche de fraîcheur et de gourmandise au quotidien.
+
+Fraise
+
+Ambiance : douce, joyeuse
+
+Description courte :
+
+Une fragrance sucrée et légère, pleine de douceur.
+
+Description longue :
+
+Le savon fraise évoque la simplicité et la fraîcheur des fruits d’été.
+
+Gomme balloune
+
+Ambiance : ludique, nostalgique
+
+Description courte :
+
+Un parfum amusant qui rappelle l’enfance.
+
+Description longue :
+
+Ce savon coloré et joyeux est parfait pour ajouter une touche de fantaisie à la routine.
+
+Menthe poivrée
+
+Ambiance : énergisante, fraîche
+
+Description courte :
+
+Un savon vivifiant aux notes fraîches et tonifiantes.
+
+Description longue :
+
+La menthe poivrée procure une sensation de fraîcheur intense et revitalisante.
+
+Noix de coco
+
+Ambiance : tropicale, douce
+
+Description courte :
+
+Un parfum crémeux et enveloppant.
+
+Description longue :
+
+Ce savon à la noix de coco évoque l’évasion et la douceur des îles.
+
+Pomme et cannelle
+
+Ambiance : chaleureuse, réconfortante
+
+Description courte :
+
+Une fragrance douce et épicée.
+
+Description longue :
+
+L’association de la pomme et de la cannelle crée une atmosphère chaleureuse et apaisante.
+
+Tartes aux citrons
+
+Ambiance : fraîche, gourmande
+
+Description courte :
+
+Un parfum acidulé et sucré à la fois.
+
+Description longue :
+
+Ce savon rappelle la douceur d’une tarte au citron fraîchement préparée.
+
+Thé vert et concombre
+
+Ambiance : fraîche, zen
+
+Description courte :
+
+Une senteur légère et apaisante.
+
+Description longue :
+
+Le thé vert et le concombre offrent une sensation de fraîcheur et d’équilibre.
+
+🧩 Contraintes techniques
+
+Toutes les pages doivent être générées dynamiquement via CMS
+
+URLs propres (ex : /savons/noix-de-coco)
+
+Composants réutilisables
+
+Responsive parfait
+
+SEO-friendly
