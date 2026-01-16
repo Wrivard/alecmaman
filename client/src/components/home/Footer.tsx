@@ -19,6 +19,19 @@ export function Footer() {
           </Button>
         </div>
 
+        {/* Map Section */}
+        <div className="w-full h-[400px] rounded-3xl overflow-hidden shadow-sm border border-secondary/20 mb-16 grayscale hover:grayscale-0 transition-all duration-700">
+          <iframe 
+            src="https://maps.google.com/maps?q=Sainte-Félicité,Quebec&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen={true} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-center md:text-left">
           <div className="space-y-4 flex flex-col items-center md:items-start">
             <img src={logo} alt="La Savonnière" className="w-48 h-auto mb-2" />
