@@ -16,9 +16,9 @@ export default function ContactPage() {
           <div className="max-w-4xl mx-auto">
             {/* Intro */}
             <div className="text-center mb-16 space-y-4">
-              <h1 className="text-4xl md:text-5xl font-serif text-foreground">Une question ?</h1>
-              <p className="text-xl text-muted-foreground">
-                Une demande spéciale ? Écrivez-nous, nous serons ravis de vous répondre.
+              <h1 className="text-4xl md:text-5xl font-serif text-foreground">Passer une commande</h1>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Remplissez le formulaire ci-dessous avec les savons de votre choix. Nous vous recontacterons rapidement pour confirmer le total et les détails de livraison.
               </p>
             </div>
 
@@ -27,9 +27,16 @@ export default function ContactPage() {
               {/* Form Side */}
               <div className="md:col-span-2 p-8 md:p-12">
                 <form className="space-y-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Votre Nom</label>
-                    <Input placeholder="Jean Dupont" className="bg-background/50 border-input focus:border-primary" />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Votre Nom</label>
+                      <Input placeholder="Jean Dupont" className="bg-background/50 border-input focus:border-primary" />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Téléphone</label>
+                      <Input placeholder="555-555-5555" className="bg-background/50 border-input focus:border-primary" />
+                    </div>
                   </div>
                   
                   <div className="space-y-2">
@@ -38,12 +45,13 @@ export default function ContactPage() {
                   </div>
                   
                   <div className="space-y-2">
-                    <label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Votre Message</label>
-                    <Textarea placeholder="Bonjour, j'aimerais savoir..." className="min-h-[150px] bg-background/50 border-input focus:border-primary" />
+                    <label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Votre Commande</label>
+                    <Textarea placeholder="Ex: 3 savons Lavande, 2 savons Avoine et Miel..." className="min-h-[150px] bg-background/50 border-input focus:border-primary" />
+                    <p className="text-xs text-muted-foreground">Indiquez les variétés et quantités désirées.</p>
                   </div>
 
-                  <Button size="lg" className="w-full rounded-full bg-primary hover:bg-primary/90 text-white">
-                    Envoyer le message
+                  <Button size="lg" className="w-full rounded-full bg-primary hover:bg-primary/90 text-white h-12 text-base">
+                    Envoyer ma commande
                   </Button>
                 </form>
               </div>
