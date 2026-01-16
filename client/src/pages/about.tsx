@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/home/Navbar";
 import { Footer } from "@/components/home/Footer";
-import aboutImg from "@assets/2e1ff457-d783-4625-ac19-0048389a8d2e_1768587366893.jfif";
+import aboutImg from "@assets/image_1768593606691.png";
 import { Heart, Leaf, Sun, Droplet } from "lucide-react";
 
 import { MapCTASection } from "@/components/shared/MapCTASection";
@@ -20,12 +20,12 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto space-y-6"
           >
-            <span className="text-sm font-bold tracking-widest text-primary uppercase">Notre Philosophie</span>
+            <span className="text-sm font-bold tracking-widest text-primary uppercase">Ysabelle Michaud</span>
             <h1 className="text-4xl md:text-6xl font-serif text-foreground leading-tight">
-              Une passion pour le <span className="italic text-primary">fait-main</span>
+              L'art de la savonnerie <span className="italic text-primary">artisanale</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              La savonnerie est née d’un amour pour les ingrédients simples, les gestes authentiques et les petits rituels du quotidien.
+              Bienvenue dans mon atelier, où chaque savon est créé avec patience, passion et le désir de partager un peu de douceur au quotidien.
             </p>
           </motion.div>
         </section>
@@ -37,11 +37,11 @@ export default function AboutPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg"
+              className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-8 border-white"
             >
               <img 
                 src={aboutImg} 
-                alt="Notre histoire" 
+                alt="Ysabelle Michaud dans son atelier" 
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -52,16 +52,19 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="space-y-6 text-lg text-muted-foreground leading-relaxed"
             >
-              <h2 className="text-3xl font-serif text-foreground">Pourquoi la savonnerie a commencé</h2>
+              <h2 className="text-3xl font-serif text-foreground">Mon histoire, mon atelier</h2>
               <p>
-                Tout a débuté dans ma cuisine, avec une simple envie : savoir exactement ce que j'appliquais sur ma peau et celle de ma famille. Lassée des listes d'ingrédients interminables et incompréhensibles, je suis revenue aux sources.
+                Je m'appelle Ysabelle Michaud, et la savonnerie est bien plus qu'un métier pour moi : c'est une façon de renouer avec l'essentiel. Tout a commencé par une quête de simplicité et de transparence pour ma propre famille. Je voulais des produits sains, dont je connaissais chaque ingrédient.
               </p>
               <p>
-                La saponification à froid s'est imposée comme une évidence. C'est une méthode ancestrale, lente et respectueuse, qui préserve les bienfaits des huiles et produit naturellement de la glycérine hydratante.
+                Dans mon atelier, le temps ralentit. J'utilise la méthode de saponification à froid, un procédé artisanal qui demande de la patience (4 à 6 semaines de cure !) mais qui est le seul à préserver véritablement les propriétés nourrissantes des huiles et beurres végétaux.
               </p>
               <p>
-                Aujourd'hui, chaque savon est le fruit de cette démarche : pas de compromis, juste de la nature, de la patience et beaucoup d'amour.
+                Ici, pas de machines industrielles. Je mesure, mélange, coule et coupe chaque barre à la main. Mes savons sont le reflet de mon environnement : naturels, authentiques et faits avec cœur. C'est un privilège de pouvoir partager ce savoir-faire avec vous.
               </p>
+              <div className="pt-4">
+                 <p className="font-serif text-xl text-primary italic">- Ysabelle</p>
+              </div>
             </motion.div>
           </div>
         </section>

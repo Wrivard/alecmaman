@@ -2,43 +2,43 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 // Import assets
-import soapLavender from "@assets/a83f4a1e-80f4-4000-89a4-81ff5dde47b7_1768587366893.jfif";
-import soapHoney from "@assets/e5ee00a4-dd3d-4cfb-ab07-19c533cbdd6b_1768587366893.jfif";
-import soapRose from "@assets/faa14cf3-baec-4057-95e2-14ae745a13a9_1768587366893.jfif";
-import soapHands from "@assets/2511d2e5-f227-44f9-97da-80ec1b0a852c_1768587366893.jfif"; 
+import soapMint from "@assets/soaps/menthe-poivree/28b8dd8d-ef9d-492d-8259-26e64d92127f.jfif";
+import soapCoco from "@assets/soaps/noix-de-coco/2511d2e5-f227-44f9-97da-80ec1b0a852c.jfif";
+import soapApple from "@assets/soaps/pomme-cannelle/413da458-9125-4f01-bf41-0c281553d993.jfif";
+import soapTea from "@assets/soaps/the-vert-concombre/16f75729-80ca-4897-a859-6952cf21a95c.jfif"; 
 
 const products = [
   {
-    id: 1,
-    name: "Douceur de Lavande",
-    scent: "Lavande & Karité",
-    description: "Un classique apaisant pour une détente absolue avant le coucher.",
-    image: soapLavender,
+    id: 7,
+    name: "Menthe poivrée",
+    scent: "Énergisant & Frais",
+    description: "Un savon vivifiant aux notes fraîches et tonifiantes.",
+    image: soapMint,
     tag: "Best-seller"
   },
   {
-    id: 2,
-    name: "Miel & Avoine",
-    scent: "Miel Local & Lait d'Avoine",
-    description: "Exfoliation douce et hydratation intense pour les peaux sèches.",
-    image: soapHoney,
+    id: 8,
+    name: "Noix de coco",
+    scent: "Tropical & Doux",
+    description: "Un parfum crémeux et enveloppant qui évoque les îles.",
+    image: soapCoco,
     tag: "Nouveau"
   },
   {
-    id: 3,
-    name: "Argile Rose",
-    scent: "Géranium & Bois de Hô",
-    description: "Purifiant et équilibrant, idéal pour raviver l'éclat du teint.",
-    image: soapRose,
+    id: 9,
+    name: "Pomme et cannelle",
+    scent: "Chaleureux & Réconfortant",
+    description: "Une fragrance douce et épicée, parfaite pour l'automne.",
+    image: soapApple,
     tag: null
   },
    {
-    id: 4,
-    name: "L'Authentique",
-    scent: "Sans parfum",
-    description: "La simplicité à l'état pur. Juste de l'huile d'olive et de la douceur.",
-    image: soapHands,
-    tag: "Sensible"
+    id: 11,
+    name: "Thé vert et concombre",
+    scent: "Frais & Zen",
+    description: "Une senteur légère et apaisante pour un moment de détente.",
+    image: soapTea,
+    tag: "Apaisant"
   }
 ];
 
