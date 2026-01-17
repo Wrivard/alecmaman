@@ -119,7 +119,7 @@ export default function ContactPage() {
               </p>
               
               <motion.div 
-                className="hidden lg:block absolute -top-10 right-10 w-32 rotate-12"
+                className="hidden lg:block absolute top-0 right-10 w-32 rotate-12 z-0"
                 initial={{ opacity: 0, rotate: 45 }}
                 animate={{ opacity: 1, rotate: 12 }}
                 transition={{ duration: 0.8 }}
