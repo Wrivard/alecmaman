@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Droplet } from "lucide-react";
-import mataneLandscape from "@assets/stock_images/peaceful_coastal_lan_29750ffd.jpg";
+import artisticMap from "@assets/generated_images/minimalist_beige_artistic_map_of_coastal_town_sainte-félicité_quebec.png";
 
 export function MapCTASection() {
   return (
@@ -32,15 +32,15 @@ export function MapCTASection() {
             </div>
 
             {/* Map Side */}
-            <div className="h-[400px] lg:h-auto min-h-[400px] relative border-t lg:border-t-0 lg:border-l border-secondary/20 group overflow-hidden bg-gray-100">
+            <div className="h-[400px] lg:h-auto min-h-[400px] relative border-t lg:border-t-0 lg:border-l border-secondary/20 group overflow-hidden bg-[#EAE7DE]">
                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg shadow-sm z-20">
                   <span className="text-xs font-bold uppercase tracking-wider text-foreground">Sainte-Félicité, Qc</span>
                </div>
                
                <img 
-                src={mataneLandscape} 
-                alt="Paysage de Sainte-Félicité" 
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                src={artisticMap} 
+                alt="Carte artistique de Sainte-Félicité" 
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-90 sepia-[0.2]"
               />
             </div>
           </div>

@@ -4,7 +4,7 @@ import { Mail, Instagram, Facebook } from "lucide-react";
 import logo from "@assets/Group_21_1768587087985.png";
 import stickerWomanWash from "@assets/8701693c-e8c1-44fa-8bcc-5b300c90f015_3_1768662774600.png";
 
-import mataneLandscape from "@assets/stock_images/peaceful_coastal_lan_29750ffd.jpg";
+import artisticMap from "@assets/generated_images/minimalist_beige_artistic_map_of_coastal_town_sainte-félicité_quebec.png";
 
 export function Footer({ showCTA = true, showMap = true }: { showCTA?: boolean, showMap?: boolean }) {
   return (
@@ -37,7 +37,7 @@ export function Footer({ showCTA = true, showMap = true }: { showCTA?: boolean, 
 
         {/* Map Section */}
         {showMap && (
-          <div className="w-full h-[400px] rounded-3xl overflow-hidden shadow-xl border-4 border-white mb-16 relative group bg-gray-100">
+          <div className="w-full h-[400px] rounded-3xl overflow-hidden shadow-xl border-4 border-white mb-16 relative group bg-[#EAE7DE]">
              {/* Map Overlay Frame */}
              <div className="absolute inset-0 border-[10px] border-white/50 pointer-events-none z-10 rounded-2xl"></div>
              
@@ -52,9 +52,9 @@ export function Footer({ showCTA = true, showMap = true }: { showCTA?: boolean, 
              </div>
 
             <img 
-              src={mataneLandscape}
-              alt="Paysage de Sainte-Félicité"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+              src={artisticMap}
+              alt="Carte artistique de Sainte-Félicité"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-90 sepia-[0.2]"
             />
           </div>
         )}
