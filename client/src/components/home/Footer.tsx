@@ -35,7 +35,16 @@ export function Footer({ showCTA = true, showMap = true }: { showCTA?: boolean, 
 
         {/* Map Section */}
         {showMap && (
-          <div className="w-full h-[400px] rounded-3xl overflow-hidden shadow-sm border border-secondary/20 mb-16 grayscale hover:grayscale-0 transition-all duration-700">
+          <div className="w-full h-[400px] rounded-3xl overflow-hidden shadow-xl border-4 border-white mb-16 relative group">
+             {/* Map Overlay Frame */}
+             <div className="absolute inset-0 border-[10px] border-white/50 pointer-events-none z-10 rounded-2xl"></div>
+             
+             {/* Map Label */}
+             <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg shadow-sm z-20 flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                <span className="text-xs font-bold uppercase tracking-wider text-foreground">Notre Atelier</span>
+             </div>
+
             <iframe 
               src="https://maps.google.com/maps?q=Sainte-Félicité,Quebec&t=&z=13&ie=UTF8&iwloc=&output=embed"
               width="100%" 
@@ -44,6 +53,7 @@ export function Footer({ showCTA = true, showMap = true }: { showCTA?: boolean, 
               allowFullScreen={true} 
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
+              className="group-hover:scale-105 transition-transform duration-1000"
             ></iframe>
           </div>
         )}

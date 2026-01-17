@@ -31,7 +31,11 @@ export function MapCTASection() {
             </div>
 
             {/* Map Side */}
-            <div className="h-[400px] lg:h-auto min-h-[400px] relative grayscale hover:grayscale-0 transition-all duration-700 border-t lg:border-t-0 lg:border-l border-secondary/20">
+            <div className="h-[400px] lg:h-auto min-h-[400px] relative border-t lg:border-t-0 lg:border-l border-secondary/20 group overflow-hidden">
+               <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg shadow-sm z-20">
+                  <span className="text-xs font-bold uppercase tracking-wider text-foreground">Sainte-Félicité, Qc</span>
+               </div>
+               
                <iframe 
                 src="https://maps.google.com/maps?q=Sainte-Félicité,Quebec&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 width="100%" 
@@ -40,7 +44,7 @@ export function MapCTASection() {
                 allowFullScreen={true} 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
-                className="absolute inset-0"
+                className="absolute inset-0 group-hover:scale-105 transition-transform duration-1000"
               ></iframe>
             </div>
           </div>
