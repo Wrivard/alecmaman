@@ -9,6 +9,7 @@ import { Leaf, Clock, Heart, Droplet } from "lucide-react";
 import stickerWomanSoap from "@assets/image_12_1768662774600.png";
 
 import { MapCTASection } from "@/components/shared/MapCTASection";
+import { ProcessSection } from "@/components/shared/ProcessSection";
 
 const statusConfig: Record<ProductStatus, { label: string; className: string }> = {
   available: { label: "Disponible", className: "bg-green-100 text-green-800 hover:bg-green-100" },
@@ -94,47 +95,8 @@ export default function ProductsPage() {
           </div>
         </section>
 
-        {/* The Missing Component: "Savoir-Faire" Section */}
-        <section className="py-24 bg-[#2C2420] text-[#F9F7F2]">
-          <div className="container mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
-              <div className="lg:col-span-1 text-center lg:text-left">
-                 <h2 className="font-serif text-3xl text-[#F9F7F2] mb-4">L'Art de la<br/>Savonnerie</h2>
-                 <p className="text-[#F9F7F2]/70 text-sm leading-relaxed">
-                   Nous respectons un processus lent et méticuleux pour garantir une qualité d'exception à chaque barre.
-                 </p>
-              </div>
-              
-              <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
-                {[
-                  { 
-                    icon: <Clock className="w-6 h-6" />, 
-                    title: "4 Semaines de Cure", 
-                    desc: "Le temps nécessaire pour que le savon développe toute sa douceur." 
-                  },
-                  { 
-                    icon: <Leaf className="w-6 h-6" />, 
-                    title: "Saponifié à Froid", 
-                    desc: "Une méthode ancestrale qui préserve les bienfaits des huiles." 
-                  },
-                  { 
-                    icon: <Heart className="w-6 h-6" />, 
-                    title: "Petites Quantités", 
-                    desc: "Fabriqué par lot de 12 savons uniquement, pour un contrôle parfait." 
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex flex-col items-center text-center p-6 bg-[#F9F7F2]/5 rounded-xl hover:bg-[#F9F7F2]/10 transition-colors border border-[#F9F7F2]/10">
-                    <div className="w-12 h-12 bg-[#F9F7F2]/10 rounded-full flex items-center justify-center text-primary shadow-sm mb-4">
-                      {item.icon}
-                    </div>
-                    <h3 className="font-serif text-lg mb-2">{item.title}</h3>
-                    <p className="text-sm text-[#F9F7F2]/60">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* The Missing Component: "Savoir-Faire" Section - Replaced with Shared Component */}
+        <ProcessSection />
 
         {/* Merged Map & Advice Section */}
         <MapCTASection />
