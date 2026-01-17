@@ -26,23 +26,26 @@ export function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex flex-col">
+    <header className="fixed top-0 left-0 right-0 z-50 flex flex-col transition-transform duration-300">
       {/* Top Banner */}
-      <div className="bg-[#2C2420] text-[#F9F7F2] py-2 px-4 shadow-sm relative z-50">
-        <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center text-xs md:text-sm font-medium tracking-wide gap-2">
+      <div className="bg-[#F5F2EA] text-[#2C2420] py-2 px-4 border-b border-[#2C2420]/5 relative z-50">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-y-1">
           
-          <div className="flex items-center gap-2 order-2 sm:order-1">
-            <img src={qcLogo} alt="Québec" className="h-5 w-auto opacity-90" />
-            <span className="opacity-90">Produit 100% Québécois</span>
+          {/* Left: Quebec (Hidden on very small screens if needed, or centered) */}
+          <div className="flex items-center justify-center md:justify-start gap-2 order-2 md:order-1">
+            <img src={qcLogo} alt="Québec" className="h-4 w-auto opacity-80" />
+            <span className="text-[10px] uppercase tracking-widest font-bold opacity-80">Fait au Québec</span>
           </div>
 
-          <div className="order-1 sm:order-2 text-center w-full sm:w-auto">
-            <span className="text-primary-foreground/90">Livraison gratuite dès 50 $ 🚚</span>
+          {/* Center: Shipping */}
+          <div className="text-center order-1 md:order-2">
+            <p className="text-xs md:text-sm font-medium tracking-wide">
+              Livraison gratuite dès 50 $ <span className="hidden sm:inline">✨</span>
+            </p>
           </div>
           
-          <div className="hidden sm:block order-3 w-[140px]">
-            {/* Spacer to balance the flex layout */}
-          </div>
+          {/* Right: Spacer for balance */}
+          <div className="hidden md:block order-3"></div>
         </div>
       </div>
 
