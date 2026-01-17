@@ -4,6 +4,8 @@ import { Mail, Instagram, Facebook } from "lucide-react";
 import logo from "@assets/Group_21_1768587087985.png";
 import stickerWomanWash from "@assets/8701693c-e8c1-44fa-8bcc-5b300c90f015_3_1768662774600.png";
 
+import mataneLandscape from "@assets/stock_images/peaceful_coastal_lan_29750ffd.jpg";
+
 export function Footer({ showCTA = true, showMap = true }: { showCTA?: boolean, showMap?: boolean }) {
   return (
     <footer id="contact" className={`bg-[#F9F7F2] pb-10 border-t border-primary/10 relative overflow-hidden ${showCTA ? "pt-20" : "pt-10"}`}>
@@ -35,7 +37,7 @@ export function Footer({ showCTA = true, showMap = true }: { showCTA?: boolean, 
 
         {/* Map Section */}
         {showMap && (
-          <div className="w-full h-[400px] rounded-3xl overflow-hidden shadow-xl border-4 border-white mb-16 relative group">
+          <div className="w-full h-[400px] rounded-3xl overflow-hidden shadow-xl border-4 border-white mb-16 relative group bg-gray-100">
              {/* Map Overlay Frame */}
              <div className="absolute inset-0 border-[10px] border-white/50 pointer-events-none z-10 rounded-2xl"></div>
              
@@ -45,16 +47,15 @@ export function Footer({ showCTA = true, showMap = true }: { showCTA?: boolean, 
                 <span className="text-xs font-bold uppercase tracking-wider text-foreground">Notre Atelier</span>
              </div>
 
-            <iframe 
-              src="https://maps.google.com/maps?q=Sainte-Félicité,Quebec&t=&z=13&ie=UTF8&iwloc=&output=embed"
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen={true} 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              className="group-hover:scale-105 transition-transform duration-1000"
-            ></iframe>
+             <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg shadow-sm z-20">
+                <p className="text-xs font-medium text-foreground">Sainte-Félicité, QC</p>
+             </div>
+
+            <img 
+              src={mataneLandscape}
+              alt="Paysage de Sainte-Félicité"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+            />
           </div>
         )}
 

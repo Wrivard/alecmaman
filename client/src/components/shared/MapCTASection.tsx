@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Droplet } from "lucide-react";
+import mataneLandscape from "@assets/stock_images/peaceful_coastal_lan_29750ffd.jpg";
 
 export function MapCTASection() {
   return (
@@ -31,21 +32,16 @@ export function MapCTASection() {
             </div>
 
             {/* Map Side */}
-            <div className="h-[400px] lg:h-auto min-h-[400px] relative border-t lg:border-t-0 lg:border-l border-secondary/20 group overflow-hidden">
+            <div className="h-[400px] lg:h-auto min-h-[400px] relative border-t lg:border-t-0 lg:border-l border-secondary/20 group overflow-hidden bg-gray-100">
                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg shadow-sm z-20">
                   <span className="text-xs font-bold uppercase tracking-wider text-foreground">Sainte-Félicité, Qc</span>
                </div>
                
-               <iframe 
-                src="https://maps.google.com/maps?q=Sainte-Félicité,Quebec&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen={true} 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-                className="absolute inset-0 group-hover:scale-105 transition-transform duration-1000"
-              ></iframe>
+               <img 
+                src={mataneLandscape} 
+                alt="Paysage de Sainte-Félicité" 
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+              />
             </div>
           </div>
         </div>

@@ -28,24 +28,24 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex flex-col transition-transform duration-300">
       {/* Top Banner */}
-      <div className="bg-[#F5F2EA] text-[#2C2420] py-2 px-4 border-b border-[#2C2420]/5 relative z-50">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-y-1">
+      <div className="bg-[#F5F2EA] text-[#2C2420] py-2.5 px-6 border-b border-[#2C2420]/5 relative z-50">
+        <div className="container mx-auto flex justify-between items-center relative">
           
-          {/* Left: Quebec (Hidden on very small screens if needed, or centered) */}
-          <div className="flex items-center justify-center md:justify-start gap-2 order-2 md:order-1">
-            <img src={qcLogo} alt="Québec" className="h-4 w-auto opacity-80" />
-            <span className="text-[10px] uppercase tracking-widest font-bold opacity-80">Fait au Québec</span>
+          {/* Left: Quebec (Absolute positioning on mobile might be tricky, flex is safer) */}
+          <div className="flex items-center gap-3 z-10">
+            <img src={qcLogo} alt="Québec" className="h-3.5 w-auto opacity-70" />
+            <span className="text-[10px] uppercase tracking-[0.2em] font-bold opacity-70 pt-0.5">Fait au Québec</span>
           </div>
 
-          {/* Center: Shipping */}
-          <div className="text-center order-1 md:order-2">
-            <p className="text-xs md:text-sm font-medium tracking-wide">
-              Livraison gratuite dès 50 $ <span className="hidden sm:inline">✨</span>
+          {/* Center: Shipping (Absolute centered) */}
+          <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none">
+            <p className="text-xs font-medium tracking-wider opacity-90">
+              Livraison gratuite dès 50 $ <span className="hidden sm:inline ml-1">✨</span>
             </p>
           </div>
           
-          {/* Right: Spacer for balance */}
-          <div className="hidden md:block order-3"></div>
+          {/* Right: Empty for now, but keeps flex layout balanced if we added something */}
+          <div className="w-[100px] hidden md:block"></div>
         </div>
       </div>
 
