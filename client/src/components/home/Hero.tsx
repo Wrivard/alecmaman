@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
 import heroImage from "@assets/2ac65586-36b7-46d0-8591-5eb19211b6cb_1768593465848.jfif";
+import stickerSign from "@assets/Group_22_1768662774600.png";
 
 export function Hero() {
   return (
@@ -20,10 +21,20 @@ export function Hero() {
             Savons Artisanaux Faits Main
           </span>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif text-foreground leading-[1.1]">
-            Des savons doux, <br/>
-            <span className="text-primary italic">naturels</span> et remplis d'amour
-          </h1>
+          <div className="relative">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif text-foreground leading-[1.1]">
+              Des savons doux, <br/>
+              <span className="text-primary italic">naturels</span> et remplis d'amour
+            </h1>
+            <motion.img 
+              src={stickerSign} 
+              alt="Handcrafted Quality" 
+              className="absolute -top-12 -right-12 w-32 hidden md:block opacity-90 rotate-12"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 1, type: "spring" }}
+            />
+          </div>
           
           <div className="space-y-4">
             <p className="text-lg text-muted-foreground max-w-md leading-relaxed">

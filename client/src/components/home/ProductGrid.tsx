@@ -6,6 +6,7 @@ import soapMint from "@assets/soaps/menthe-poivree/28b8dd8d-ef9d-492d-8259-26e64
 import soapCoco from "@assets/soaps/noix-de-coco/2511d2e5-f227-44f9-97da-80ec1b0a852c.jfif";
 import soapApple from "@assets/soaps/pomme-cannelle/413da458-9125-4f01-bf41-0c281553d993.jfif";
 import soapTea from "@assets/soaps/the-vert-concombre/16f75729-80ca-4897-a859-6952cf21a95c.jfif"; 
+import stickerBasket from "@assets/Group_23_1768662774600.png";
 
 const products = [
   {
@@ -44,8 +45,12 @@ const products = [
 
 export function ProductGrid() {
   return (
-    <section id="products" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+    <section id="products" className="py-24 bg-background relative overflow-hidden">
+      <div className="absolute -left-10 top-20 opacity-10 rotate-12 pointer-events-none">
+        <img src={stickerBasket} className="w-64" alt="Decorative basket" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 space-y-4">
           <span className="text-sm font-bold tracking-widest text-primary/80 uppercase">Notre Collection</span>
           <h2 className="text-4xl md:text-5xl font-serif text-foreground">Nos savons du moment</h2>

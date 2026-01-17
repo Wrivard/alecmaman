@@ -25,15 +25,21 @@ export function Navbar() {
   ];
 
   return (
-    <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/90 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-4"
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+    <>
+      {/* Free Shipping Banner */}
+      <div className="bg-primary text-primary-foreground text-center py-2 text-sm font-medium tracking-wide z-50 relative">
+        Livraison gratuite dès 50 $
+      </div>
+
+      <motion.nav
+        className={`sticky top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          isScrolled ? "bg-background/90 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-4"
+        }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="container mx-auto px-6 flex items-center justify-between">
         <Link href="/">
           <a className="cursor-pointer hover:opacity-80 transition-opacity">
             <img src={logo} alt="La Savonnière" className="h-16 w-auto object-contain" />
@@ -90,5 +96,6 @@ export function Navbar() {
         )}
       </AnimatePresence>
     </motion.nav>
+    </>
   );
 }

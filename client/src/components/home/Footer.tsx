@@ -2,11 +2,20 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Mail, Instagram, Facebook } from "lucide-react";
 import logo from "@assets/Group_21_1768587087985.png";
+import stickerWomanWash from "@assets/8701693c-e8c1-44fa-8bcc-5b300c90f015_3_1768662774600.png";
 
 export function Footer({ showCTA = true, showMap = true }: { showCTA?: boolean, showMap?: boolean }) {
   return (
-    <footer id="contact" className={`bg-[#F9F7F2] pb-10 border-t border-primary/10 ${showCTA ? "pt-20" : "pt-10"}`}>
-      <div className="container mx-auto px-6">
+    <footer id="contact" className={`bg-[#F9F7F2] pb-10 border-t border-primary/10 relative overflow-hidden ${showCTA ? "pt-20" : "pt-10"}`}>
+      
+      {/* Decorative sticker */}
+      <img 
+        src={stickerWomanWash} 
+        alt="Woman washing" 
+        className="absolute bottom-0 right-0 w-48 md:w-64 opacity-10 pointer-events-none z-0" 
+      />
+
+      <div className="container mx-auto px-6 relative z-10">
         
         {/* CTA Section */}
         {showCTA && (

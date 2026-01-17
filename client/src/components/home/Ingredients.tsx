@@ -1,10 +1,15 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import ingredientsImg from "@assets/generated_images/natural_soap_ingredients_composition.png";
+import stickerSoapLabel from "@assets/8701693c-e8c1-44fa-8bcc-5b300c90f015_1_1768662774599.png";
 
 export function Ingredients() {
   return (
-    <section id="ingredients" className="py-24 bg-[#2C2420] text-[#F9F7F2] overflow-hidden">
+    <section id="ingredients" className="py-24 bg-[#2C2420] text-[#F9F7F2] overflow-hidden relative">
+      <div className="absolute top-10 right-10 opacity-20 pointer-events-none hidden lg:block">
+        <img src={stickerSoapLabel} alt="Soap label" className="w-48 rotate-12" />
+      </div>
+      
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           

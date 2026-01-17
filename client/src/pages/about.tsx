@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/home/Navbar";
 import { Footer } from "@/components/home/Footer";
 import aboutImg from "@assets/image_1768593606691.png";
+import stickerSoap from "@assets/8701693c-e8c1-44fa-8bcc-5b300c90f015_2_1768662774599.png";
 import { Heart, Leaf, Sun, Droplet } from "lucide-react";
 
 import { MapCTASection } from "@/components/shared/MapCTASection";
@@ -18,8 +19,15 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl mx-auto space-y-6"
+            className="max-w-3xl mx-auto space-y-6 relative"
           >
+            <motion.img 
+               src={stickerSoap} 
+               className="absolute -top-6 -left-20 w-32 hidden lg:block opacity-90 -rotate-12"
+               initial={{ opacity: 0, x: -20 }}
+               animate={{ opacity: 0.9, x: 0 }}
+               transition={{ delay: 0.5 }}
+            />
             <span className="text-sm font-bold tracking-widest text-primary uppercase">Ysabelle Michaud</span>
             <h1 className="text-4xl md:text-6xl font-serif text-foreground leading-tight">
               L'art de la savonnerie <span className="italic text-primary">artisanale</span>

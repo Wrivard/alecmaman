@@ -35,7 +35,8 @@ const productDefinitions = [
     description: "Un savon rafraîchissant aux notes marines, idéal pour une sensation de pureté.",
     fullDescription: "Inspiré par la nature, ce savon combine la fraîcheur des algues et la douceur de l’aloe vera pour un moment de bien-être apaisant.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Mica", "Extrait d'algue", "Aloe Vera"],
-    status: 'available' as ProductStatus
+    status: 'available' as ProductStatus,
+    price: "6.00 $"
   },
   {
     id: 2,
@@ -45,7 +46,8 @@ const productDefinitions = [
     description: "Un parfum sucré et chaleureux qui rappelle les douceurs maison.",
     fullDescription: "Ce savon aux notes de mangue et de biscuit offre une expérience réconfortante et joyeuse à chaque utilisation.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Mica"],
-    status: 'available' as ProductStatus
+    status: 'available' as ProductStatus,
+    price: "6.00 $"
   },
   {
     id: 3,
@@ -55,7 +57,8 @@ const productDefinitions = [
     description: "Une alliance élégante entre la douceur de la vanille et des notes chaleureuses.",
     fullDescription: "Un savon au parfum riche et raffiné, parfait pour un moment de détente et de confort.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Mica", "Gousse de vanille"],
-    status: 'limited' as ProductStatus
+    status: 'limited' as ProductStatus,
+    price: "6.00 $"
   },
   {
     id: 4,
@@ -65,7 +68,8 @@ const productDefinitions = [
     description: "Un parfum sucré et pétillant qui éveille les sens.",
     fullDescription: "Ce savon à la cerise apporte une touche de fraîcheur et de gourmandise au quotidien.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Mica"],
-    status: 'available' as ProductStatus
+    status: 'available' as ProductStatus,
+    price: "6.00 $"
   },
   {
     id: 5,
@@ -75,7 +79,8 @@ const productDefinitions = [
     description: "Une fragrance sucrée et légère, pleine de douceur.",
     fullDescription: "Le savon fraise évoque la simplicité et la fraîcheur des fruits d’été.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Mica"],
-    status: 'available' as ProductStatus
+    status: 'available' as ProductStatus,
+    price: "6.00 $"
   },
   {
     id: 6,
@@ -85,7 +90,8 @@ const productDefinitions = [
     description: "Un parfum amusant qui rappelle l’enfance.",
     fullDescription: "Ce savon coloré et joyeux est parfait pour ajouter une touche de fantaisie à la routine.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Mica"],
-    status: 'available' as ProductStatus
+    status: 'available' as ProductStatus,
+    price: "6.00 $"
   },
   {
     id: 7,
@@ -95,7 +101,8 @@ const productDefinitions = [
     description: "Un savon vivifiant aux notes fraîches et tonifiantes.",
     fullDescription: "La menthe poivrée procure une sensation de fraîcheur intense et revitalisante.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Huile essentielle de Menthe Poivrée", "Mica"],
-    status: 'available' as ProductStatus
+    status: 'available' as ProductStatus,
+    price: "6.00 $"
   },
   {
     id: 8,
@@ -105,7 +112,8 @@ const productDefinitions = [
     description: "Un parfum crémeux et enveloppant.",
     fullDescription: "Ce savon à la noix de coco évoque l’évasion et la douceur des îles.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Lait de coco"],
-    status: 'available' as ProductStatus
+    status: 'available' as ProductStatus,
+    price: "6.00 $"
   },
   {
     id: 9,
@@ -115,7 +123,8 @@ const productDefinitions = [
     description: "Une fragrance douce et épicée.",
     fullDescription: "L’association de la pomme et de la cannelle crée une atmosphère chaleureuse et apaisante.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Cannelle en poudre"],
-    status: 'available' as ProductStatus
+    status: 'available' as ProductStatus,
+    price: "6.00 $"
   },
   {
     id: 10,
@@ -125,7 +134,8 @@ const productDefinitions = [
     description: "Un parfum acidulé et sucré à la fois.",
     fullDescription: "Ce savon rappelle la douceur d’une tarte au citron fraîchement préparée.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Mica", "Zeste de citron"],
-    status: 'available' as ProductStatus
+    status: 'available' as ProductStatus,
+    price: "6.00 $"
   },
   {
     id: 11,
@@ -135,7 +145,8 @@ const productDefinitions = [
     description: "Une senteur légère et apaisante.",
     fullDescription: "Le thé vert et le concombre offrent une sensation de fraîcheur et d’équilibre.",
     ingredients: ["Huile d'olive", "Huile de coco", "Huile de tournesol", "Fragrance", "Extrait de thé vert", "Jus de concombre"],
-    status: 'available' as ProductStatus
+    status: 'available' as ProductStatus,
+    price: "6.00 $"
   }
 ];
 

@@ -6,6 +6,7 @@ import { Footer } from "@/components/home/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Leaf, Clock, Heart, Droplet } from "lucide-react";
+import stickerWomanSoap from "@assets/image_12_1768662774600.png";
 
 import { MapCTASection } from "@/components/shared/MapCTASection";
 
@@ -34,7 +35,16 @@ export default function ProductsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
+              className="relative"
             >
+              <motion.img 
+                src={stickerWomanSoap} 
+                className="absolute -top-10 left-0 lg:left-20 w-32 md:w-48 hidden md:block opacity-90 -rotate-6"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5 }}
+              />
+              
               <span className="inline-block text-xs font-bold tracking-[0.2em] text-primary uppercase mb-4">La Collection</span>
               <h1 className="text-5xl md:text-7xl font-serif text-foreground mb-6">Nos Savons Artisanaux</h1>
               <div className="w-20 h-1 bg-primary/20 mx-auto mb-8"></div>

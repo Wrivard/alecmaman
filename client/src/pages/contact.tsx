@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { MapPin, Mail, Instagram, Truck, Store, Minus, Plus, ShoppingBasket } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import stickerBox from "@assets/c300af24-aa99-4976-abab-b7f9c6944483_1_1768662774600.png";
 
 export default function ContactPage() {
   const [location] = useLocation();
@@ -20,6 +21,9 @@ export default function ContactPage() {
   // Cart state: Record<productId, quantity>
   const [cart, setCart] = useState<Record<number, number>>({});
   const [customRequest, setCustomRequest] = useState("");
+
+  const SHIPPING_COST = 9.95;
+  const FREE_SHIPPING_THRESHOLD = 50;
 
   useEffect(() => {
     // Check if we have a product in URL to pre-select
@@ -49,8 +53,25 @@ export default function ContactPage() {
     });
   };
 
+  const calculateSubtotal = () => {
+    return Object.entries(cart).reduce((sum, [id, qty]) => {
+      const product = products.find(p => p.id === Number(id));
+      const price = parseFloat(product?.price?.replace(/[^0-9.]/g, "") || "6");
+      return sum + (price * qty);
+    }, 0);
+  };
+
+  const calculateShipping = (subtotal: number) => {
+    if (deliveryMethod === "pickup") return 0;
+    return subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_COST;
+  };
+
   // Generate the order message automatically based on selection
   const generateOrderSummary = () => {
+    const subtotal = calculateSubtotal();
+    const shipping = calculateShipping(subtotal);
+    const total = subtotal + shipping;
+    
     const selectedItems = Object.entries(cart).map(([id, qty]) => {
       const product = products.find(p => p.id === Number(id));
       return product ? `- ${qty}x ${product.name} (${product.scent})` : null;
@@ -64,6 +85,13 @@ export default function ContactPage() {
       message += "\n\n";
     }
     
+    message += `Méthode de réception: ${deliveryMethod === "shipping" ? "Livraison" : "Cueillette"}\n`;
+    message += `Sous-total estimé: ${subtotal.toFixed(2)} $\n`;
+    if (deliveryMethod === "shipping") {
+      message += `Livraison: ${shipping === 0 ? "GRATUITE" : `${shipping.toFixed(2)} $`}\n`;
+    }
+    message += `Total estimé: ${total.toFixed(2)} $\n\n`;
+    
     if (customRequest) {
       message += `Note supplémentaire :\n${customRequest}`;
     }
@@ -72,6 +100,9 @@ export default function ContactPage() {
   };
 
   const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+  const subtotal = calculateSubtotal();
+  const shipping = calculateShipping(subtotal);
+  const total = subtotal + shipping;
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
@@ -81,11 +112,20 @@ export default function ContactPage() {
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             {/* Intro */}
-            <div className="text-center mb-16 space-y-4">
+            <div className="text-center mb-16 space-y-4 relative">
               <h1 className="text-4xl md:text-5xl font-serif text-foreground">Passer une commande</h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                 Sélectionnez vos savons préférés ci-dessous. Nous vous recontacterons rapidement pour confirmer le total et les détails.
               </p>
+              
+              <motion.div 
+                className="hidden lg:block absolute -top-10 right-10 w-32 rotate-12"
+                initial={{ opacity: 0, rotate: 45 }}
+                animate={{ opacity: 1, rotate: 12 }}
+                transition={{ duration: 0.8 }}
+              >
+                <img src={stickerBox} alt="Gift box" className="w-full h-auto drop-shadow-md opacity-90" />
+              </motion.div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
@@ -113,7 +153,10 @@ export default function ContactPage() {
                         </div>
                         
                         <div className="ml-3 flex-grow min-w-0">
-                          <h3 className="font-medium text-foreground truncate">{product.name}</h3>
+                          <div className="flex justify-between items-start">
+                            <h3 className="font-medium text-foreground truncate">{product.name}</h3>
+                            <span className="text-sm font-semibold text-primary">{product.price}</span>
+                          </div>
                           <p className="text-xs text-muted-foreground truncate">{product.scent}</p>
                           <div className="mt-1">
                             {product.status === "out_of_stock" ? (
@@ -176,6 +219,7 @@ export default function ContactPage() {
                             <Truck className="mb-2 h-5 w-5 text-muted-foreground peer-data-[state=checked]:text-primary" />
                             <div className="text-center">
                               <span className="block font-semibold text-sm">Livraison</span>
+                              <span className="text-xs text-muted-foreground mt-1">9,95 $ (Gratuit {">"} 50 $)</span>
                             </div>
                           </Label>
                         </div>
@@ -188,6 +232,7 @@ export default function ContactPage() {
                             <Store className="mb-2 h-5 w-5 text-muted-foreground peer-data-[state=checked]:text-primary" />
                             <div className="text-center">
                               <span className="block font-semibold text-sm">Cueillette</span>
+                              <span className="text-xs text-muted-foreground mt-1">Gratuit</span>
                             </div>
                           </Label>
                         </div>
@@ -232,7 +277,7 @@ export default function ContactPage() {
                     </AnimatePresence>
 
                     <Button size="lg" className="w-full rounded-full bg-primary hover:bg-primary/90 text-white h-14 text-lg shadow-lg shadow-primary/20 mt-4">
-                      Envoyer ma commande {totalItems > 0 && `(${totalItems} articles)`}
+                      Envoyer ma commande {totalItems > 0 && `(~${total.toFixed(2)} $)`}
                     </Button>
                     <p className="text-center text-xs text-muted-foreground mt-2">
                       En cliquant, vous enverrez une demande de commande. Aucun paiement n'est requis maintenant.
@@ -250,20 +295,39 @@ export default function ContactPage() {
                       {totalItems === 0 ? (
                          <p className="text-muted-foreground text-sm italic">Votre panier est vide. Sélectionnez des savons pour commencer.</p>
                       ) : (
-                        <ul className="space-y-3 mb-6">
-                           {Object.entries(cart).map(([id, qty]) => {
-                              const product = products.find(p => p.id === Number(id));
-                              if (!product) return null;
-                              return (
-                                <li key={id} className="flex justify-between text-sm">
-                                  <span>{product.name}</span>
-                                  <span className="font-bold">x{qty}</span>
-                                </li>
-                              );
-                           })}
-                        </ul>
+                        <div className="space-y-4">
+                          <ul className="space-y-3 mb-6">
+                             {Object.entries(cart).map(([id, qty]) => {
+                                const product = products.find(p => p.id === Number(id));
+                                if (!product) return null;
+                                return (
+                                  <li key={id} className="flex justify-between text-sm">
+                                    <span>{product.name}</span>
+                                    <span className="font-bold">x{qty}</span>
+                                  </li>
+                                );
+                             })}
+                          </ul>
+                          
+                          <div className="pt-4 border-t border-primary/10 space-y-2">
+                            <div className="flex justify-between text-sm">
+                              <span className="text-muted-foreground">Sous-total</span>
+                              <span>{subtotal.toFixed(2)} $</span>
+                            </div>
+                            {deliveryMethod === "shipping" && (
+                              <div className="flex justify-between text-sm">
+                                <span className="text-muted-foreground">Livraison</span>
+                                <span>{shipping === 0 ? "Gratuite" : `${shipping.toFixed(2)} $`}</span>
+                              </div>
+                            )}
+                            <div className="flex justify-between font-bold text-lg pt-2 border-t border-primary/10">
+                              <span>Total estimé</span>
+                              <span>{total.toFixed(2)} $</span>
+                            </div>
+                          </div>
+                        </div>
                       )}
-                      <div className="pt-4 border-t border-primary/10">
+                      <div className="pt-4 mt-4 border-t border-primary/10">
                          <p className="text-xs text-muted-foreground">Le total et les frais de livraison seront confirmés par courriel.</p>
                       </div>
                     </div>
