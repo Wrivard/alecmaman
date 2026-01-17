@@ -9,6 +9,7 @@ import { ArrowLeft, Check, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { MapCTASection } from "@/components/shared/MapCTASection";
+import { Leaf, Clock, Heart } from "lucide-react";
 
 const statusConfig: Record<ProductStatus, { label: string; className: string }> = {
   available: { label: "Disponible", className: "bg-green-100 text-green-800" },
@@ -168,7 +169,49 @@ export default function ProductDetailPage() {
           </div>
         </div>
 
-        <div className="mt-24">
+        {/* Process Section */}
+        <section className="py-24 bg-[#F9F7F2] mt-24 border-t border-[#EAE7DE]">
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+              <div className="lg:col-span-1 text-center lg:text-left">
+                 <h2 className="font-serif text-3xl text-[#2C2420] mb-4">L'Art de la<br/>Savonnerie</h2>
+                 <p className="text-[#2C2420]/70 text-sm leading-relaxed">
+                   Nous respectons un processus lent et méticuleux pour garantir une qualité d'exception à chaque barre.
+                 </p>
+              </div>
+              
+              <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[
+                  { 
+                    icon: <Clock className="w-6 h-6" />, 
+                    title: "4 Semaines de Cure", 
+                    desc: "Le temps nécessaire pour que le savon développe toute sa douceur." 
+                  },
+                  { 
+                    icon: <Leaf className="w-6 h-6" />, 
+                    title: "Saponifié à Froid", 
+                    desc: "Une méthode ancestrale qui préserve les bienfaits des huiles." 
+                  },
+                  { 
+                    icon: <Heart className="w-6 h-6" />, 
+                    title: "Petites Quantités", 
+                    desc: "Fabriqué par lot de 12 savons uniquement, pour un contrôle parfait." 
+                  }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex flex-col items-center text-center p-6 bg-white rounded-xl hover:shadow-md transition-all border border-[#2C2420]/5">
+                    <div className="w-12 h-12 bg-[#2C2420]/5 rounded-full flex items-center justify-center text-primary shadow-sm mb-4">
+                      {item.icon}
+                    </div>
+                    <h3 className="font-serif text-lg mb-2 text-[#2C2420]">{item.title}</h3>
+                    <p className="text-sm text-[#2C2420]/60">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="">
           <MapCTASection />
         </div>
       </main>

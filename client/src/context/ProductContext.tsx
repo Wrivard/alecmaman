@@ -1,13 +1,18 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
+import handsHoldingSoap from "@assets/image_1768666312374.png";
 
 // Dynamically import all soap images from the soaps folder
 const soapImagesGlob = import.meta.glob('@assets/soaps/**/*.{jfif,png,jpg,jpeg,webp}', { eager: true, import: 'default' });
 
 // Helper to get images for a specific soap folder
 const getSoapImages = (folderName: string): string[] => {
-  return Object.entries(soapImagesGlob)
+  const images = Object.entries(soapImagesGlob)
     .filter(([path]) => path.includes(`/soaps/${folderName}/`))
     .map(([, url]) => url as string);
+    
+  // Prepend the "hands holding soap" image to every gallery as the main image
+  // In a real app, this would be specific to each product, but for this mockup request we use the provided reference
+  return [handsHoldingSoap, ...images];
 };
 
 export type ProductStatus = 'available' | 'limited' | 'out_of_stock';
