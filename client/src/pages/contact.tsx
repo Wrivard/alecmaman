@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { MapPin, Mail, Instagram, Truck, Store, Minus, Plus, ShoppingBasket } from "lucide-react";
+import { MapPin, Mail, Facebook, Truck, Store, Minus, Plus, ShoppingBasket } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import stickerBox from "@assets/c300af24-aa99-4976-abab-b7f9c6944483_1_1768662774600.png";
 
@@ -266,10 +266,12 @@ export default function ContactPage() {
                           </div>
                         </div>
                         <div className="flex items-start space-x-3 text-muted-foreground">
-                          <Instagram className="w-5 h-5 text-primary mt-1" />
+                          <Facebook className="w-5 h-5 text-primary mt-1" />
                           <div className="text-sm">
-                            <span className="block font-medium text-foreground">Instagram</span>
-                            @lasavonniere
+                            <span className="block font-medium text-foreground">Facebook</span>
+                            <a href="https://www.facebook.com/profile.php?id=100046329536199" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                              La Savonnière
+                            </a>
                           </div>
                         </div>
                       </div>

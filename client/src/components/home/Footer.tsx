@@ -80,13 +80,10 @@ export function Footer({ showCTA = true, showMap = true }: { showCTA?: boolean, 
           <div className="space-y-4">
             <h4 className="font-bold text-foreground uppercase tracking-widest text-xs">Suivez-nous</h4>
             <div className="flex justify-center md:justify-start space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all">
-                <Instagram size={20} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all">
+              <a href="https://www.facebook.com/profile.php?id=100046329536199" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all">
+              <a href="mailto:ysabellemichaud@gmail.com" className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all">
                 <Mail size={20} />
               </a>
             </div>

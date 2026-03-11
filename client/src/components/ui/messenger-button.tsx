@@ -3,7 +3,7 @@ import messengerIcon from "@assets/Black-facebook-messenger-icon-on-transparent-
 
 export function MessengerButton() {
   const handleClick = () => {
-    window.open("https://m.me/lasavonniere", "_blank");
+    window.open("https://www.facebook.com/profile.php?id=100046329536199", "_blank");
   };
 
   return (
