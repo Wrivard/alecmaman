@@ -45,7 +45,7 @@ export function Hero() {
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-1" />
                 <p className="text-sm text-foreground/80 font-medium">
-                  Retrouvez-nous aux marchés d'artisans durant la saison estivale à Ste-Félicité, Matane, Grosses-Roche, Cap-Chat ainsi que plusieurs marchés de Noël.
+                  Retrouvez-nous aux marchés d'artisans durant la saison estivale.
                 </p>
               </div>
             </div>
