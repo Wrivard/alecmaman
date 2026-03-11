@@ -70,10 +70,10 @@ export function Footer({ showCTA = true, showMap = true }: { showCTA?: boolean, 
           <div className="space-y-4">
             <h4 className="font-bold text-foreground uppercase tracking-widest text-xs">Liens Rapides</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Boutique</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">À Propos</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Points de vente</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">FAQ</a></li>
+              <li><Link href="/"><a className="text-muted-foreground hover:text-primary transition-colors">Accueil</a></Link></li>
+              <li><Link href="/savons"><a className="text-muted-foreground hover:text-primary transition-colors">Nos Savons</a></Link></li>
+              <li><Link href="/about"><a className="text-muted-foreground hover:text-primary transition-colors">À Propos</a></Link></li>
+              <li><Link href="/contact"><a className="text-muted-foreground hover:text-primary transition-colors">Commander</a></Link></li>
             </ul>
           </div>
 
