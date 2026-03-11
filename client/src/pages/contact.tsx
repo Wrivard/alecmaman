@@ -16,14 +16,10 @@ import stickerBox from "@assets/c300af24-aa99-4976-abab-b7f9c6944483_1_176866277
 export default function ContactPage() {
   const [location] = useLocation();
   const { products } = useProducts();
-  const [deliveryMethod, setDeliveryMethod] = useState<"shipping" | "pickup">("shipping");
   
   // Cart state: Record<productId, quantity>
   const [cart, setCart] = useState<Record<number, number>>({});
   const [customRequest, setCustomRequest] = useState("");
-
-  const SHIPPING_COST = 9.95;
-  const FREE_SHIPPING_THRESHOLD = 50;
 
   useEffect(() => {
     // Check if we have a product in URL to pre-select
@@ -61,16 +57,9 @@ export default function ContactPage() {
     }, 0);
   };
 
-  const calculateShipping = (subtotal: number) => {
-    if (deliveryMethod === "pickup") return 0;
-    return subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_COST;
-  };
-
   // Generate the order message automatically based on selection
   const generateOrderSummary = () => {
     const subtotal = calculateSubtotal();
-    const shipping = calculateShipping(subtotal);
-    const total = subtotal + shipping;
     
     const selectedItems = Object.entries(cart).map(([id, qty]) => {
       const product = products.find(p => p.id === Number(id));
@@ -85,12 +74,7 @@ export default function ContactPage() {
       message += "\n\n";
     }
     
-    message += `Méthode de réception: ${deliveryMethod === "shipping" ? "Livraison" : "Cueillette"}\n`;
-    message += `Sous-total estimé: ${subtotal.toFixed(2)} $\n`;
-    if (deliveryMethod === "shipping") {
-      message += `Livraison: ${shipping === 0 ? "GRATUITE" : `${shipping.toFixed(2)} $`}\n`;
-    }
-    message += `Total estimé: ${total.toFixed(2)} $\n\n`;
+    message += `Total estimé: ${subtotal.toFixed(2)} $\n\n`;
     
     if (customRequest) {
       message += `Note supplémentaire :\n${customRequest}`;
@@ -101,8 +85,6 @@ export default function ContactPage() {
 
   const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
   const subtotal = calculateSubtotal();
-  const shipping = calculateShipping(subtotal);
-  const total = subtotal + shipping;
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
@@ -203,42 +185,6 @@ export default function ContactPage() {
                 <div className="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-border">
                   <h2 className="font-serif text-2xl mb-6">Vos Coordonnées</h2>
                   <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                    <div className="space-y-3">
-                      <Label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Mode de réception</Label>
-                      <RadioGroup 
-                        defaultValue="shipping" 
-                        className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-                        onValueChange={(value) => setDeliveryMethod(value as "shipping" | "pickup")}
-                      >
-                        <div>
-                          <RadioGroupItem value="shipping" id="shipping" className="peer sr-only" />
-                          <Label
-                            htmlFor="shipping"
-                            className="flex flex-col items-center justify-between rounded-xl border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer transition-all h-full"
-                          >
-                            <Truck className="mb-2 h-5 w-5 text-muted-foreground peer-data-[state=checked]:text-primary" />
-                            <div className="text-center">
-                              <span className="block font-semibold text-sm">Livraison</span>
-                              <span className="text-xs text-muted-foreground mt-1">9,95 $ (Gratuit {">"} 50 $)</span>
-                            </div>
-                          </Label>
-                        </div>
-                        <div>
-                          <RadioGroupItem value="pickup" id="pickup" className="peer sr-only" />
-                          <Label
-                            htmlFor="pickup"
-                            className="flex flex-col items-center justify-between rounded-xl border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer transition-all h-full"
-                          >
-                            <Store className="mb-2 h-5 w-5 text-muted-foreground peer-data-[state=checked]:text-primary" />
-                            <div className="text-center">
-                              <span className="block font-semibold text-sm">Cueillette</span>
-                              <span className="text-xs text-muted-foreground mt-1">Gratuit</span>
-                            </div>
-                          </Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Votre Nom</Label>
@@ -256,28 +202,8 @@ export default function ContactPage() {
                       <Input type="email" placeholder="jean@exemple.com" className="bg-background/50 border-input focus:border-primary" />
                     </div>
 
-                    <AnimatePresence>
-                      {deliveryMethod === "shipping" && (
-                        <motion.div 
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="space-y-4 overflow-hidden"
-                        >
-                          <div className="space-y-2">
-                            <Label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Adresse</Label>
-                            <Input placeholder="123 Rue Principale" className="bg-background/50 border-input focus:border-primary" />
-                          </div>
-                          <div className="grid grid-cols-2 gap-4">
-                            <Input placeholder="Ville" className="bg-background/50 border-input focus:border-primary" />
-                            <Input placeholder="Code Postal" className="bg-background/50 border-input focus:border-primary" />
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-
                     <Button size="lg" className="w-full rounded-full bg-primary hover:bg-primary/90 text-white h-14 text-lg shadow-lg shadow-primary/20 mt-4">
-                      Envoyer ma commande {totalItems > 0 && `(~${total.toFixed(2)} $)`}
+                      Envoyer ma commande {totalItems > 0 && `(~${subtotal.toFixed(2)} $)`}
                     </Button>
                     <p className="text-center text-xs text-muted-foreground mt-2">
                       En cliquant, vous enverrez une demande de commande. Aucun paiement n'est requis maintenant.
@@ -310,25 +236,15 @@ export default function ContactPage() {
                           </ul>
                           
                           <div className="pt-4 border-t border-primary/10 space-y-2">
-                            <div className="flex justify-between text-sm">
-                              <span className="text-muted-foreground">Sous-total</span>
-                              <span>{subtotal.toFixed(2)} $</span>
-                            </div>
-                            {deliveryMethod === "shipping" && (
-                              <div className="flex justify-between text-sm">
-                                <span className="text-muted-foreground">Livraison</span>
-                                <span>{shipping === 0 ? "Gratuite" : `${shipping.toFixed(2)} $`}</span>
-                              </div>
-                            )}
-                            <div className="flex justify-between font-bold text-lg pt-2 border-t border-primary/10">
+                            <div className="flex justify-between font-bold text-lg">
                               <span>Total estimé</span>
-                              <span>{total.toFixed(2)} $</span>
+                              <span>{subtotal.toFixed(2)} $</span>
                             </div>
                           </div>
                         </div>
                       )}
                       <div className="pt-4 mt-4 border-t border-primary/10">
-                         <p className="text-xs text-muted-foreground">Le total et les frais de livraison seront confirmés par courriel.</p>
+                         <p className="text-xs text-muted-foreground">Le total final sera confirmé par courriel.</p>
                       </div>
                     </div>
 

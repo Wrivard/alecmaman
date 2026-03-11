@@ -36,13 +36,6 @@ export function Navbar() {
             <img src={qcLogo} alt="Québec" className="h-3 w-auto" />
             <span>Fait au Québec</span>
           </div>
-
-          <span className="text-[#2C2420]/20 hidden sm:block">|</span>
-
-          {/* Shipping Item */}
-          <div className="opacity-90">
-            Livraison gratuite dès 50 $ <span className="hidden sm:inline ml-1">✨</span>
-          </div>
           
         </div>
       </div>
