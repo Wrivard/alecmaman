@@ -21,6 +21,9 @@ export default function ContactPage() {
   const [cart, setCart] = useState<Record<number, number>>({});
   const [customRequest, setCustomRequest] = useState("");
   
+  const [isSending, setIsSending] = useState(false);
+  const [sendSuccess, setSendSuccess] = useState(false);
+  
   // Contact Form State
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -104,14 +107,57 @@ export default function ContactPage() {
     return message;
   };
 
-  const handleSendOrder = () => {
+  const handleSendOrder = async () => {
     if (totalItems === 0) {
       alert("Votre panier est vide. Veuillez sélectionner au moins un savon.");
       return;
     }
-    const subject = encodeURIComponent(`Nouvelle commande La Savonnière - ${name || "Nouveau Client"}`);
-    const body = encodeURIComponent(generateOrderSummary());
-    window.location.href = `mailto:ysabellemichaud@gmail.com?subject=${subject}&body=${body}`;
+    
+    if (!name || !email) {
+      alert("Veuillez remplir au moins votre nom et votre courriel.");
+      return;
+    }
+
+    setIsSending(true);
+    
+    const selectedItems = Object.entries(cart).map(([id, qty]) => {
+      const product = products.find(p => p.id === Number(id));
+      return product ? `- ${qty}x ${product.name} (${product.scent})` : null;
+    }).filter(Boolean).join("\n");
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          phone,
+          email,
+          orderDetails: selectedItems,
+          subtotal: subtotal.toFixed(2),
+          customRequest
+        }),
+      });
+
+      if (response.ok) {
+        setSendSuccess(true);
+        // Reset form
+        setCart({});
+        setName("");
+        setPhone("");
+        setEmail("");
+        setCustomRequest("");
+      } else {
+        alert("Une erreur s'est produite lors de l'envoi. Veuillez réessayer plus tard.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Une erreur s'est produite lors de l'envoi de la commande.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
@@ -251,14 +297,25 @@ export default function ContactPage() {
 
                     <Button 
                       onClick={handleSendOrder}
+                      disabled={isSending || sendSuccess}
                       size="lg" 
-                      className="w-full rounded-full bg-primary hover:bg-primary/90 text-white h-14 text-lg shadow-lg shadow-primary/20 mt-4"
+                      className="w-full rounded-full bg-primary hover:bg-primary/90 text-white h-14 text-lg shadow-lg shadow-primary/20 mt-4 transition-all"
                     >
-                      Envoyer ma commande {totalItems > 0 && `(~${subtotal.toFixed(2)} $)`}
+                      {isSending ? "Envoi en cours..." : sendSuccess ? "Commande envoyée !" : `Envoyer ma commande ${totalItems > 0 ? `(~${subtotal.toFixed(2)} $)` : ''}`}
                     </Button>
-                    <p className="text-center text-xs text-muted-foreground mt-2">
-                      En cliquant, cela ouvrira votre application de courriel avec les détails de la commande.
-                    </p>
+                    
+                    {sendSuccess && (
+                      <div className="mt-4 p-4 bg-green-50 text-green-800 rounded-xl text-center border border-green-200">
+                        <p className="font-medium">Merci pour votre commande !</p>
+                        <p className="text-sm mt-1">Ysabelle vous recontactera rapidement par courriel avec le total final incluant la livraison.</p>
+                      </div>
+                    )}
+                    
+                    {!sendSuccess && (
+                      <p className="text-center text-xs text-muted-foreground mt-2">
+                        En cliquant, votre commande sera envoyée directement à l'atelier. Aucun paiement n'est requis maintenant.
+                      </p>
+                    )}
                   </form>
                 </div>
               </div>
