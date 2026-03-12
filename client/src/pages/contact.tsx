@@ -20,6 +20,11 @@ export default function ContactPage() {
   // Cart state: Record<productId, quantity>
   const [cart, setCart] = useState<Record<number, number>>({});
   const [customRequest, setCustomRequest] = useState("");
+  
+  // Contact Form State
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     // Check if we have a product in URL to pre-select
@@ -66,21 +71,47 @@ export default function ContactPage() {
       return product ? `- ${qty}x ${product.name} (${product.scent})` : null;
     }).filter(Boolean);
 
-    if (selectedItems.length === 0 && !customRequest) return "";
+    let message = `Bonjour Ysabelle,\n\nVous avez reçu une nouvelle demande de commande de la part de ${name || "un client"}.\n\n`;
+    
+    message += `=======================\n`;
+    message += `COORDONNÉES DU CLIENT\n`;
+    message += `=======================\n`;
+    message += `Nom : ${name || "Non spécifié"}\n`;
+    message += `Téléphone : ${phone || "Non spécifié"}\n`;
+    message += `Courriel : ${email || "Non spécifié"}\n\n`;
 
-    let message = "Bonjour, je souhaiterais passer la commande suivante :\n\n";
+    message += `=======================\n`;
+    message += `DÉTAILS DE LA COMMANDE\n`;
+    message += `=======================\n`;
+
     if (selectedItems.length > 0) {
       message += selectedItems.join("\n");
       message += "\n\n";
+    } else {
+      message += "Aucun savon sélectionné.\n\n";
     }
     
-    message += `Total estimé: ${subtotal.toFixed(2)} $\n\n`;
+    message += `-----------------------\n`;
+    message += `TOTAL ESTIMÉ : ${subtotal.toFixed(2)} $\n`;
+    message += `-----------------------\n\n`;
     
     if (customRequest) {
-      message += `Note supplémentaire :\n${customRequest}`;
+      message += `NOTE / DEMANDE SPÉCIALE :\n${customRequest}\n\n`;
     }
+    
+    message += `Merci de recontacter le client pour confirmer les frais de livraison et le paiement.`;
 
     return message;
+  };
+
+  const handleSendOrder = () => {
+    if (totalItems === 0) {
+      alert("Votre panier est vide. Veuillez sélectionner au moins un savon.");
+      return;
+    }
+    const subject = encodeURIComponent(`Nouvelle commande La Savonnière - ${name || "Nouveau Client"}`);
+    const body = encodeURIComponent(generateOrderSummary());
+    window.location.href = `mailto:ysabellemichaud@gmail.com?subject=${subject}&body=${body}`;
   };
 
   const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
@@ -188,25 +219,45 @@ export default function ContactPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Votre Nom</Label>
-                        <Input placeholder="Jean Dupont" className="bg-background/50 border-input focus:border-primary" />
+                        <Input 
+                          placeholder="Jean Dupont" 
+                          className="bg-background/50 border-input focus:border-primary"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                        />
                       </div>
                       
                       <div className="space-y-2">
                         <Label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Téléphone</Label>
-                        <Input placeholder="555-555-5555" className="bg-background/50 border-input focus:border-primary" />
+                        <Input 
+                          placeholder="555-555-5555" 
+                          className="bg-background/50 border-input focus:border-primary"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                        />
                       </div>
                     </div>
                     
                     <div className="space-y-2">
                       <Label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Votre Courriel</Label>
-                      <Input type="email" placeholder="jean@exemple.com" className="bg-background/50 border-input focus:border-primary" />
+                      <Input 
+                        type="email" 
+                        placeholder="jean@exemple.com" 
+                        className="bg-background/50 border-input focus:border-primary"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
                     </div>
 
-                    <Button size="lg" className="w-full rounded-full bg-primary hover:bg-primary/90 text-white h-14 text-lg shadow-lg shadow-primary/20 mt-4">
+                    <Button 
+                      onClick={handleSendOrder}
+                      size="lg" 
+                      className="w-full rounded-full bg-primary hover:bg-primary/90 text-white h-14 text-lg shadow-lg shadow-primary/20 mt-4"
+                    >
                       Envoyer ma commande {totalItems > 0 && `(~${subtotal.toFixed(2)} $)`}
                     </Button>
                     <p className="text-center text-xs text-muted-foreground mt-2">
-                      En cliquant, vous enverrez une demande de commande. Aucun paiement n'est requis maintenant.
+                      En cliquant, cela ouvrira votre application de courriel avec les détails de la commande.
                     </p>
                   </form>
                 </div>
