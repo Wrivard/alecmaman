@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     }
 
     const data = await resend.emails.send({
-      from: 'La Savonnière <onboarding@resend.dev>', 
+      from: 'La Savonnière <bonjour@kua.quebec>', 
       to: [toEmail],
       reply_to: email || undefined,
       subject: `Nouvelle commande La Savonnière - ${name || "Nouveau Client"}`,
