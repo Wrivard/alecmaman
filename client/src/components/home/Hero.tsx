@@ -52,7 +52,7 @@ export function Hero() {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Link href="/products">
+            <Link href="/savons">
               <Button size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8 h-12 text-base w-full sm:w-auto">
                 Découvrir nos savons
               </Button>
